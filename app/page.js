@@ -11,15 +11,17 @@ import DropItem from './components/dropItem';
 import DropZone from './components/dropZone';
 
 export default function Home() {
-  const [isDropped, setIsDropped] = useState(false);
+  const [parent, setParent] = useState(null);
+  const containers = [
+    { title: 'Good', id: 'good' },
+    { title: 'Service', id: 'service' },
+  ];
 
   function handleDragEnd(event) {
-    console.log('EVENT', event, event.over);
-    if (event.over && event.over.id === 'droppable') {
-      setIsDropped(true);
-    }
+    const { over } = event;
+    setParent(over ? over.id : null);
   }
-  console.log('is dropped', isDropped);
+
   const draggable = (
     <DropItem>
       <Image src={Joel} alt='drawing of a boy doing a cartwheel' />
@@ -30,10 +32,15 @@ export default function Home() {
     <main className='flex min-h-screen flex-col items-center justify-between p-24'>
       <DndContext onDragEnd={handleDragEnd}>
         <div className='z-10 w-full items-center justify-around font-mono text-sm lg:flex'>
-          <DropZone title='Good'>{isDropped ? draggable : null}</DropZone>
-          {/* <DropZone title='Service'>{isDropped ? draggable : null}</DropZone> */}
+          {containers.map((contain) => {
+            return (
+              <DropZone key={contain.id} id={contain.id} title={contain.title}>
+                {parent === contain.id ? draggable : null}
+              </DropZone>
+            );
+          })}
         </div>
-        {!isDropped ? draggable : null}
+        {parent === null ? draggable : null}
       </DndContext>
     </main>
   );
