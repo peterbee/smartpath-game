@@ -12,7 +12,13 @@ export default function DropItem(props) {
     : undefined;
 
   return (
-    <button ref={setNodeRef} style={style} {...listeners} {...attributes}>
+    <button
+      ref={setNodeRef}
+      style={style}
+      {...listeners}
+      {...attributes}
+      className='rounded-lg border-blue border-[5px]'
+    >
       {props.children}
     </button>
   );
