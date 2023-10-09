@@ -1,3 +1,41 @@
-export default function DropItem({}) {
-  return <div>image</div>;
+import { useDraggable } from '@dnd-kit/core';
+
+export default function DropItem(props) {
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: 'draggable',
+  });
+
+  console.log('TRANSFORM', transform);
+
+  const style = transform
+    ? {
+        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+      }
+    : undefined;
+
+  return (
+    <button ref={setNodeRef} style={style} {...listeners} {...attributes}>
+      {props.children}
+    </button>
+  );
 }
+// import React from 'react';
+
+// import { useDraggable } from '@dnd-kit/core';
+
+// export function Draggable(props) {
+//   const { attributes, listeners, setNodeRef, transform } = useDraggable({
+//     id: 'draggable',
+//   });
+//   const style = transform
+//     ? {
+//         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+//       }
+//     : undefined;
+
+//   return (
+//     <button ref={setNodeRef} style={style} {...listeners} {...attributes}>
+//       {props.children}
+//     </button>
+//   );
+// }
