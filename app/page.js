@@ -12,25 +12,44 @@ import DropItem from './components/dropItem';
 import DropZone from './components/dropZone';
 
 export default function Home() {
-  const [parent, setParent] = useState(null);
-  const [activeId, setActiveId] = useState(null);
-  const containers = [
+  const [containers, setContainers] = useState([
     { title: 'Good', id: 'good' },
     { title: 'Service', id: 'service' },
-  ];
+  ]);
+  const [items, setItems] = useState([]);
+  const [parent, setParent] = useState();
+  const [activeId, setActiveId] = useState(null);
+
+  // const containers = [
+  //   { title: 'Good', id: 'good' },
+  //   { title: 'Service', id: 'service' },
+  // ];
+
   const images = [
-    { src: Joel, id: 1 },
-    { src: Chocolate, id: 2 },
+    { src: Joel, id: 1, alt: 'drawing of a boy doing a cartwheel' },
+    { src: Chocolate, id: 2, alt: 'drawing of a chocolate bar' },
   ];
 
   function handleDragStart(event) {
-    setActiveId(event.active.id);
+    const { active } = event;
+    setActiveId(active.id);
+    const newItem = active.data.current?.title;
+    const list = [...items];
+    list.push(newItem);
+    setItems(list);
   }
 
   function handleDragEnd(event) {
     const { over } = event;
-    setParent(over ? over.id : null);
-    setActiveId(null);
+
+    // console.log('OVER', event, over);
+    const toAdd = containers.find((container) => container.id === over.id);
+    console.log('ADD', toAdd);
+    const newItem = images.find((image) => image.id === activeId);
+    const updated = { ...toAdd, item: newItem };
+    setContainers((containers) => [...containers, updated]);
+    // setParent(over ? over.id : null);
+    // setItems(null);
   }
 
   return (
@@ -38,9 +57,12 @@ export default function Home() {
       <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <div className='z-10 w-full items-center justify-around font-mono text-sm lg:flex'>
           {containers.map((contain) => {
+            console.log('IN CONTAINERS', contain);
             return (
               <DropZone key={contain.id} id={contain.id} title={contain.title}>
-                {parent === contain.id ? draggable : null}
+                {contain.item?.src && (
+                  <Image src={contain.item.src} alt={contain.item.alt} />
+                )}
               </DropZone>
             );
           })}
@@ -49,8 +71,8 @@ export default function Home() {
         <div className='flex justify-between'>
           {images.map((img) => {
             return (
-              <DropItem key={img.id} id={img.id}>
-                <Image src={img.src} alt='drawing of a boy doing a cartwheel' />
+              <DropItem key={img.id} id={img.id} alt={img.alt}>
+                <Image src={img.src} alt={img.alt} />
               </DropItem>
             );
           })}
@@ -59,3 +81,16 @@ export default function Home() {
     </main>
   );
 }
+
+/*  let initialItems;
+  const [items, setItems] = useState({
+    A: `A${0 + 1}`,
+    B: `B${1 + 1}`,
+    C: `C${2 + 1}`,
+    D: `D${3 + 1}`,
+  });
+
+  const [containers, setContainers] = useState(Object.keys(items));
+  const containerId = containers[1];
+  console.log('WTF', items, containers, items[containerId]);
+  */

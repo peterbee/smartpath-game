@@ -2,7 +2,9 @@ import { useDraggable } from '@dnd-kit/core';
 
 export default function DropItem(props) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: 'draggable',
+    id: props.id,
+    attributes: { roleDescription: props.alt },
+    data: { title: props.children },
   });
 
   const style = transform

@@ -5,7 +5,7 @@ export default function DropZone({ title, id, children }) {
     id: id,
   });
 
-  console.log('IS OVER', isOver);
+  // console.log('IS OVER', isOver);
 
   const hoverStyle =
     'outline-[5px] outline-dashed outline-blue outline-offset-8';
