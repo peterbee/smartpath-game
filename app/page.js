@@ -35,22 +35,26 @@ export default function Home() {
     const newContainer = containers.find(
       (container) => container.id === over.id
     );
+
     const oldContainer = containers.find(
       (container) => container.item.id === activeId
     );
+
     const newItem = oldContainer
       ? oldContainer.item
       : items.find((image) => image.id === activeId);
 
-    const updated = { ...newContainer, item: newItem };
+    const addedContainer = { ...newContainer, item: newItem };
 
     if (!!oldContainer) {
-      const updateContainer = { ...oldContainer, item: {} };
-      setContainers(() => [updated, updateContainer]);
+      const removedContainer = { ...oldContainer, item: {} };
+      setContainers(() => [addedContainer, removedContainer]);
+      return;
     }
+
     setContainers((containers) => [
-      ...containers.filter((contain) => contain.id !== updated.id),
-      updated,
+      ...containers.filter((contain) => contain.id !== addedContainer.id),
+      addedContainer,
     ]);
     setItems((items) => items.filter((item) => item.id !== activeId));
     setActiveId(null);
