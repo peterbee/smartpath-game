@@ -16,37 +16,38 @@ export default function Home() {
     { title: 'Good', id: 'good', item: {} },
     { title: 'Service', id: 'service', item: {} },
   ]);
+
   const [items, setItems] = useState([
     { src: Joel, id: 1, alt: 'drawing of a boy doing a cartwheel' },
     { src: Chocolate, id: 2, alt: 'drawing of a chocolate bar' },
   ]);
+
   const [parent, setParent] = useState();
   const [activeId, setActiveId] = useState(null);
-
-  // const containers = [
-  //   { title: 'Good', id: 'good' },
-  //   { title: 'Service', id: 'service' },
-  // ];
-
-  // const images = [
-  //   { src: Joel, id: 1, alt: 'drawing of a boy doing a cartwheel' },
-  //   { src: Chocolate, id: 2, alt: 'drawing of a chocolate bar' },
-  // ];
 
   function handleDragStart(event) {
     const { active } = event;
     setActiveId(active.id);
-    // const newItem = active.data.current?.title;
-    // const list = [...items];
-    // list.push(newItem);
-    // setItems(list);
   }
 
   function handleDragEnd(event) {
     const { over } = event;
-    const toAdd = containers.find((container) => container.id === over.id);
-    const newItem = items.find((image) => image.id === activeId);
-    const updated = { ...toAdd, item: newItem };
+    const newContainer = containers.find(
+      (container) => container.id === over.id
+    );
+    const oldContainer = containers.find(
+      (container) => container.item.id === activeId
+    );
+    const newItem = oldContainer
+      ? oldContainer.item
+      : items.find((image) => image.id === activeId);
+
+    const updated = { ...newContainer, item: newItem };
+
+    if (!!oldContainer) {
+      const updateContainer = { ...oldContainer, item: {} };
+      setContainers(() => [updated, updateContainer]);
+    }
     setContainers((containers) => [
       ...containers.filter((contain) => contain.id !== updated.id),
       updated,
@@ -54,14 +55,12 @@ export default function Home() {
     setItems((items) => items.filter((item) => item.id !== activeId));
     setActiveId(null);
   }
-  console.log(items);
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-between p-24'>
       <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <div className='z-10 w-full items-center justify-around font-mono text-sm lg:flex'>
           {containers.map((contain) => {
-            console.log('IN CONTAINERS', containers);
             return (
               <DropZone key={contain.id} id={contain.id} title={contain.title}>
                 {contain.item?.src && (
