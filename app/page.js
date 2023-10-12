@@ -10,6 +10,7 @@ import Chocolate from '../public/images/chocolate.png';
 import Joel from '../public/images/Joel_cartwheel.png';
 import DropItem from './components/dropItem';
 import DropZone from './components/dropZone';
+import DndPage from './dndPage';
 
 export default function Home() {
   const [containers, setContainers] = useState([
@@ -22,7 +23,6 @@ export default function Home() {
     { src: Chocolate, id: 2, alt: 'drawing of a chocolate bar' },
   ]);
 
-  const [parent, setParent] = useState();
   const [activeId, setActiveId] = useState(null);
 
   function handleDragStart(event) {
@@ -31,7 +31,7 @@ export default function Home() {
   }
 
   function handleDragEnd(event) {
-    const { over } = event;
+    const { active, over } = event;
     const newContainer = containers.find(
       (container) => container.id === over.id
     );
@@ -62,7 +62,9 @@ export default function Home() {
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+      <DndPage />
+      <div>placeholder</div>
+      {/* <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <div className='z-10 w-full items-center justify-around font-mono text-sm lg:flex'>
           {containers.map((contain) => {
             return (
@@ -80,7 +82,6 @@ export default function Home() {
             );
           })}
         </div>
-        {/* {parent === null ? draggable : null} */}
         <div className='flex justify-between'>
           {items &&
             items.map((img) => {
@@ -91,7 +92,7 @@ export default function Home() {
               );
             })}
         </div>
-      </DndContext>
+      </DndContext> */}
     </main>
   );
 }
