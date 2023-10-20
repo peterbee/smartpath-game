@@ -30,11 +30,6 @@ export default function DndPage() {
     setActiveId(active.id);
   }
 
-  // function handleDragOver(event) {
-  //   const { active, over } = event;
-  //   console.log('DRAG OVER', event);
-  // }
-
   function handleDragEnd(event) {
     const { over } = event;
     const newContainer = containers.find(
@@ -72,14 +67,10 @@ export default function DndPage() {
     setItems((items) => items.filter((item) => item.id !== activeId));
     return setActiveId(null);
   }
-  console.log('OUTSIDE', containers);
+
   return (
     <article className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <DndContext
-        onDragStart={handleDragStart}
-        // onDragOver={handleDragOver}
-        onDragEnd={handleDragEnd}
-      >
+      <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <SortableContext items={containers}>
           <div className='z-10 w-full items-center justify-around text-sm lg:flex'>
             {containers.map((container, i) => {
