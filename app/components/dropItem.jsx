@@ -19,7 +19,7 @@ export default function DropItem(props) {
       style={style}
       {...listeners}
       {...attributes}
-      className='rounded-lg border-blue border-[5px]'
+      className='rounded-lg border-blue border-[5px] mx-5'
     >
       {props.children}
     </button>

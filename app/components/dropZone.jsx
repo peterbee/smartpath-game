@@ -1,11 +1,10 @@
 import { useDroppable } from '@dnd-kit/core';
 
-export default function DropZone({ title, id, children }) {
+export default function DropZone({ title, id, index, children }) {
   const { isOver, setNodeRef } = useDroppable({
     id: id,
+    data: { current: index },
   });
-
-  // console.log('IS OVER', isOver);
 
   const hoverStyle =
     'outline-[5px] outline-dashed outline-blue outline-offset-8';
