@@ -13,55 +13,55 @@ import DropZone from './components/dropZone';
 import DndPage from './dndPage';
 
 export default function Home() {
-  const [containers, setContainers] = useState([
-    { title: 'Good', id: 'good', item: {} },
-    { title: 'Service', id: 'service', item: {} },
-  ]);
+  // const [containers, setContainers] = useState([
+  //   { title: 'Good', id: 'good', item: {} },
+  //   { title: 'Service', id: 'service', item: {} },
+  // ]);
 
-  const [items, setItems] = useState([
-    { src: Joel, id: 1, alt: 'drawing of a boy doing a cartwheel' },
-    { src: Chocolate, id: 2, alt: 'drawing of a chocolate bar' },
-  ]);
+  // const [items, setItems] = useState([
+  //   { src: Joel, id: 1, alt: 'drawing of a boy doing a cartwheel' },
+  //   { src: Chocolate, id: 2, alt: 'drawing of a chocolate bar' },
+  // ]);
 
-  const [activeId, setActiveId] = useState(null);
+  // const [activeId, setActiveId] = useState(null);
 
-  function handleDragStart(event) {
-    const { active } = event;
-    setActiveId(active.id);
-  }
+  // function handleDragStart(event) {
+  //   const { active } = event;
+  //   setActiveId(active.id);
+  // }
 
-  function handleDragEnd(event) {
-    const { active, over } = event;
-    const newContainer = containers.find(
-      (container) => container.id === over.id
-    );
+  // function handleDragEnd(event) {
+  //   const { active, over } = event;
+  //   const newContainer = containers.find(
+  //     (container) => container.id === over.id
+  //   );
 
-    const oldContainer = containers.find(
-      (container) => container.item.id === activeId
-    );
+  //   const oldContainer = containers.find(
+  //     (container) => container.item.id === activeId
+  //   );
 
-    const newItem = oldContainer
-      ? oldContainer.item
-      : items.find((image) => image.id === activeId);
+  //   const newItem = oldContainer
+  //     ? oldContainer.item
+  //     : items.find((image) => image.id === activeId);
 
-    const addedContainer = { ...newContainer, item: newItem };
+  //   const addedContainer = { ...newContainer, item: newItem };
 
-    if (!!oldContainer) {
-      const removedContainer = { ...oldContainer, item: {} };
-      setContainers(() => [addedContainer, removedContainer]);
-      return;
-    }
+  //   if (!!oldContainer) {
+  //     const removedContainer = { ...oldContainer, item: {} };
+  //     setContainers(() => [addedContainer, removedContainer]);
+  //     return;
+  //   }
 
-    setContainers((containers) => [
-      ...containers.filter((contain) => contain.id !== addedContainer.id),
-      addedContainer,
-    ]);
-    setItems((items) => items.filter((item) => item.id !== activeId));
-    setActiveId(null);
-  }
+  //   setContainers((containers) => [
+  //     ...containers.filter((contain) => contain.id !== addedContainer.id),
+  //     addedContainer,
+  //   ]);
+  //   setItems((items) => items.filter((item) => item.id !== activeId));
+  //   setActiveId(null);
+  // }
 
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
+    <main className='flex min-h-screen flex-col items-center justify-between'>
       <DndPage />
       <div>placeholder</div>
       {/* <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>

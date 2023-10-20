@@ -14,8 +14,8 @@ import DropZone from './components/dropZone';
 
 export default function DndPage() {
   const [containers, setContainers] = useState([
-    { title: 'Good', id: 'good', item: {} },
-    { title: 'Service', id: 'service', item: {} },
+    { id: 'good', title: 'Good', item: {} },
+    { id: 'service', title: 'Service', item: {} },
   ]);
 
   const [items, setItems] = useState([
@@ -30,13 +30,15 @@ export default function DndPage() {
     setActiveId(active.id);
   }
 
-  function handleDragOver({ active, over }) {
-    console.log('IDs', active, over);
+  function handleDragOver(event) {
+    const { active, over } = event;
+    console.log('DRAG OVER', event);
   }
 
   function handleDragEnd(event) {
-    const { active, over } = event;
-
+    console.log('END EVENT', event);
+    console.log('CONTAINERS', containers);
+    const { over } = event;
     const newContainer = containers.find(
       (container) => container.id === over.id
     );
@@ -52,27 +54,28 @@ export default function DndPage() {
     const addedContainer = { ...newContainer, item: newItem };
 
     if (!!oldContainer) {
-      const removedContainer = { ...oldContainer, item: {} };
-      setContainers((containers) => {
-        return arrayMove(
-          containers,
-          containers.indexOf(addedContainer.id),
-          containers.indexOf(removedContainer.id)
-        );
-      });
+      const updatedOld = { ...oldContainer, item: {} };
+      const dupContainers = containers;
+      dupContainers.splice(dupContainers.indexOf(oldContainer), 1, updatedOld);
+      dupContainers.splice(
+        dupContainers.indexOf(newContainer),
+        1,
+        addedContainer
+      );
+      console.log('UPDATED DUP', dupContainers);
     }
 
+    // console.log('SET CONTAINERS OUTSIDE');
     setContainers((containers) => {
       const newArray = [...containers];
       const addedIndex = containers.indexOf(newContainer);
       newArray.splice(addedIndex, 1, addedContainer);
       return newArray;
     });
-
     setItems((items) => items.filter((item) => item.id !== activeId));
-    setActiveId(null);
+    return setActiveId(null);
   }
-
+  console.log('OUTSIDE', containers);
   return (
     <article className='flex min-h-screen flex-col items-center justify-between p-24'>
       <DndContext
@@ -82,12 +85,13 @@ export default function DndPage() {
       >
         <SortableContext items={containers}>
           <div className='z-10 w-full items-center justify-around text-sm lg:flex'>
-            {containers.map((container) => {
+            {containers.map((container, i) => {
               return (
                 <DropZone
                   key={container.id}
                   id={container.id}
                   title={container.title}
+                  index={i}
                 >
                   {container.item?.src && (
                     <DropItem
@@ -105,7 +109,7 @@ export default function DndPage() {
               );
             })}
           </div>
-          <div className='flex justify-between'>
+          <div className='flex'>
             {items &&
               items.map((img) => {
                 return (
