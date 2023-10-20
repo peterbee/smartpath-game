@@ -30,14 +30,12 @@ export default function DndPage() {
     setActiveId(active.id);
   }
 
-  function handleDragOver(event) {
-    const { active, over } = event;
-    console.log('DRAG OVER', event);
-  }
+  // function handleDragOver(event) {
+  //   const { active, over } = event;
+  //   console.log('DRAG OVER', event);
+  // }
 
   function handleDragEnd(event) {
-    console.log('END EVENT', event);
-    console.log('CONTAINERS', containers);
     const { over } = event;
     const newContainer = containers.find(
       (container) => container.id === over.id
@@ -55,17 +53,16 @@ export default function DndPage() {
 
     if (!!oldContainer) {
       const updatedOld = { ...oldContainer, item: {} };
-      const dupContainers = containers;
+      const dupContainers = [...containers];
       dupContainers.splice(dupContainers.indexOf(oldContainer), 1, updatedOld);
       dupContainers.splice(
         dupContainers.indexOf(newContainer),
         1,
         addedContainer
       );
-      console.log('UPDATED DUP', dupContainers);
+      return setContainers(dupContainers);
     }
 
-    // console.log('SET CONTAINERS OUTSIDE');
     setContainers((containers) => {
       const newArray = [...containers];
       const addedIndex = containers.indexOf(newContainer);
@@ -80,7 +77,7 @@ export default function DndPage() {
     <article className='flex min-h-screen flex-col items-center justify-between p-24'>
       <DndContext
         onDragStart={handleDragStart}
-        onDragOver={handleDragOver}
+        // onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
         <SortableContext items={containers}>
