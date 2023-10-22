@@ -12,8 +12,8 @@ import DropZone from './components/dropZone';
 
 export default function DndPage() {
   const [containers, setContainers] = useState([
-    { id: 'good', title: 'Good', item: {} },
-    { id: 'service', title: 'Service', item: {} },
+    { id: 'good', title: 'Good', items: [] },
+    { id: 'service', title: 'Service', items: [] },
   ]);
 
   const [items, setItems] = useState([
@@ -34,18 +34,30 @@ export default function DndPage() {
       (container) => container.id === over.id
     );
 
-    const oldContainer = containers.find(
-      (container) => container.item.id === activeId
-    );
+    const oldContainer = containers.find((container) => {
+      return (
+        container.items.length > 0 ??
+        container.items.map((item) => item.id === activeId)
+      );
+    });
 
     const newItem = oldContainer
-      ? oldContainer.item
+      ? oldContainer.items.find((item) => item.id === activeId)
       : items.find((image) => image.id === activeId);
 
-    const addedContainer = { ...newContainer, item: newItem };
+    const addedContainer = {
+      ...newContainer,
+      items:
+        newContainer.items.length > 0
+          ? arrayMove(newContainer.items, newItem)
+          : [newItem],
+    };
 
     if (!!oldContainer) {
-      const updatedOld = { ...oldContainer, item: {} };
+      const updatedOld = {
+        ...oldContainer,
+        items: oldContainer.items.find((item) => item.id !== activeId) ?? [],
+      };
       const dupContainers = [...containers];
       dupContainers.splice(dupContainers.indexOf(oldContainer), 1, updatedOld);
       dupContainers.splice(
@@ -79,13 +91,15 @@ export default function DndPage() {
                   title={container.title}
                   index={i}
                 >
-                  {container.item?.src && (
-                    <DropItem
-                      key={container.item.id}
-                      id={container.item.id}
-                      alt={container.item.alt}
-                    />
-                  )}
+                  {!!container.items[0] &&
+                    container.items.map((item) => (
+                      <DropItem
+                        key={item.id}
+                        img={item}
+                        id={item.id}
+                        alt={item.alt}
+                      />
+                    ))}
                 </DropZone>
               );
             })}

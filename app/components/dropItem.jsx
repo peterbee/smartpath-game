@@ -9,7 +9,7 @@ export default function DropItem(props) {
     attributes: { roleDescription: alt },
     // data: { title: props.children },
   });
-  console.log('item props', props);
+
   const style = transform
     ? {
         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
@@ -31,8 +31,8 @@ export default function DropItem(props) {
           xmlns='http://www.w3.org/2000/svg'
           width='24'
           height='24'
-          fill='currentColor'
-          class='bi bi-arrows-move'
+          fillRule='currentColor'
+          className='bi bi-arrows-move'
           viewBox='0 0 16 16'
         >
           <path
