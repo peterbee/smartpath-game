@@ -20,16 +20,3 @@ export default function Home() {
     </main>
   );
 }
-
-/*  let initialItems;
-  const [items, setItems] = useState({
-    A: `A${0 + 1}`,
-    B: `B${1 + 1}`,
-    C: `C${2 + 1}`,
-    D: `D${3 + 1}`,
-  });
-
-  const [containers, setContainers] = useState(Object.keys(items));
-  const containerId = containers[1];
-  console.log('WTF', items, containers, items[containerId]);
-  */

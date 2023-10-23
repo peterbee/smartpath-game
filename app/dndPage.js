@@ -10,15 +10,16 @@ import Joel from '../public/assets/Joel_narrow.png';
 import DropItem from './components/dropItem';
 import DropZone from './components/dropZone';
 
+const items = {
+  1: { src: Joel, id: 1, alt: 'drawing of a boy doing a cartwheel' },
+  2: { src: Chocolate, id: 2, alt: 'drawing of a chocolate bar' },
+};
+
 export default function DndPage() {
   const [containers, setContainers] = useState([
+    { id: 'hold', title: '', items: Object.keys(items) },
     { id: 'good', title: 'Good', items: [] },
     { id: 'service', title: 'Service', items: [] },
-  ]);
-
-  const [items, setItems] = useState([
-    { src: Joel, id: 1, alt: 'drawing of a boy doing a cartwheel' },
-    { src: Chocolate, id: 2, alt: 'drawing of a chocolate bar' },
   ]);
 
   const [activeId, setActiveId] = useState(null);
@@ -30,51 +31,15 @@ export default function DndPage() {
 
   function handleDragEnd(event) {
     const { over } = event;
-    const newContainer = containers.find(
-      (container) => container.id === over.id
-    );
-
-    const oldContainer = containers.find((container) => {
-      return (
-        container.items.length > 0 ??
-        container.items.map((item) => item.id === activeId)
-      );
-    });
-
-    const newItem = oldContainer
-      ? oldContainer.items.find((item) => item.id === activeId)
-      : items.find((image) => image.id === activeId);
-
-    const addedContainer = {
-      ...newContainer,
-      items:
-        newContainer.items.length > 0
-          ? arrayMove(newContainer.items, newItem)
-          : [newItem],
-    };
-
-    if (!!oldContainer) {
-      const updatedOld = {
-        ...oldContainer,
-        items: oldContainer.items.find((item) => item.id !== activeId) ?? [],
-      };
-      const dupContainers = [...containers];
-      dupContainers.splice(dupContainers.indexOf(oldContainer), 1, updatedOld);
-      dupContainers.splice(
-        dupContainers.indexOf(newContainer),
-        1,
-        addedContainer
-      );
-      return setContainers(dupContainers);
-    }
+    if (!over) return;
 
     setContainers((containers) => {
-      const newArray = [...containers];
-      const addedIndex = containers.indexOf(newContainer);
-      newArray.splice(addedIndex, 1, addedContainer);
-      return newArray;
+      return containers.map((container) => {
+        const remainingItems = container.items.filter((id) => id != activeId);
+        if (container.id === over.id) remainingItems.push(activeId);
+        return { ...container, items: remainingItems };
+      });
     });
-    setItems((items) => items.filter((item) => item.id !== activeId));
     return setActiveId(null);
   }
 
@@ -83,7 +48,7 @@ export default function DndPage() {
       <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <SortableContext items={containers}>
           <div className='z-10 w-full items-center justify-around text-sm lg:flex'>
-            {containers.map((container, i) => {
+            {containers.slice(1).map((container, i) => {
               return (
                 <DropZone
                   key={container.id}
@@ -91,48 +56,22 @@ export default function DndPage() {
                   title={container.title}
                   index={i}
                 >
-                  {!!container.items[0] &&
-                    container.items.map((item) => (
-                      <DropItem
-                        key={item.id}
-                        img={item}
-                        id={item.id}
-                        alt={item.alt}
-                      />
-                    ))}
+                  {container.items?.map((id) => {
+                    const item = items[id];
+                    return <DropItem key={item.id} item={item} />;
+                  })}
                 </DropZone>
               );
             })}
           </div>
           <div className='flex'>
-            {items &&
-              items.map((img) => {
-                return <DropItem key={img.id} img={img} />;
-              })}
+            {containers[0]?.items?.map((id) => {
+              const item = items[id];
+              return <DropItem key={item.id} item={item} />;
+            })}
           </div>
         </SortableContext>
       </DndContext>
     </article>
   );
-}
-
-{
-  /* <Image
-                        src={container.item.src}
-                        alt={container.item.alt}
-                      />
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        width='16'
-                        height='16'
-                        fill='currentColor'
-                        class='bi bi-arrows-move'
-                        viewBox='0 0 16 16'
-                      >
-                        <path
-                          fill-rule='evenodd'
-                          d='M7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10zM.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708l-2-2zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8z'
-                        />
-                      </svg>
-                    </DropItem> */
 }
