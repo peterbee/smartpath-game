@@ -4,10 +4,11 @@ import { useDraggable } from '@dnd-kit/core';
 
 export default function DropItem(props) {
   const { id, alt, src } = props.item;
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: id,
-    attributes: { roleDescription: alt },
-  });
+  const { attributes, isDragging, listeners, setNodeRef, transform } =
+    useDraggable({
+      id: id,
+      attributes: { roleDescription: alt },
+    });
 
   const style = transform
     ? {
@@ -22,16 +23,17 @@ export default function DropItem(props) {
       {...listeners}
       {...attributes}
       aria-describedby={alt}
-      className='w-72 h-32 rounded-lg border-blue border-[5px] mx-5 flex justify-between content-center'
+      className={`w-72 h-32 m-5 flex justify-around rounded-lg border-4 border-blue shadow-md ${
+        isDragging ? 'border-double border-8 border-blue' : null
+      } hover:shadow-spec hover: cursor-move`}
     >
-      <Image className='m-2.5 w-44' src={src} alt={alt} />
-
-      <div className='m-2.5 p-2.5 rounded-lg border-blue border-[2px]'>
+      <Image className='w-40 m-5' src={src} alt={alt} />
+      <div className='flex flex-start mt-2 p-2 w-11 h-11 self-start rounded-lg border-blue border-2 fill-current hover:fill-blue hover:shadow-arrows'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='24'
           height='24'
-          fillRule='currentColor'
+          // fillRule='currentColor'
           className='bi bi-arrows-move'
           viewBox='0 0 16 16'
         >
@@ -44,3 +46,10 @@ export default function DropItem(props) {
     </button>
   );
 }
+
+// ${
+//   attributes['aria-pressed'] === true
+//   ? 'border-blue'
+//   : 'border-indigo-500'
+// }
+// hover:border-double hover:border-[6px]

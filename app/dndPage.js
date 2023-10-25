@@ -2,7 +2,14 @@
 
 import { useState } from 'react';
 
-import { DndContext } from '@dnd-kit/core';
+import {
+  DndContext,
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
 import { arrayMove, SortableContext } from '@dnd-kit/sortable';
 
 import Chocolate from '../public/assets/Chocolate_narrow.png';
@@ -23,6 +30,17 @@ export default function DndPage() {
   ]);
 
   const [activeId, setActiveId] = useState(null);
+
+  const mouseSensor = useSensor(MouseSensor);
+  const keyboardSensor = useSensor(KeyboardSensor);
+  const touchSensor = useSensor(TouchSensor, {
+    activationConstraint: {
+      delay: 250,
+      tolerance: 5,
+    },
+  });
+
+  const sensors = useSensors(mouseSensor, keyboardSensor, touchSensor);
 
   function handleDragStart(event) {
     const { active } = event;
@@ -45,9 +63,13 @@ export default function DndPage() {
 
   return (
     <article className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+      <DndContext
+        sensors={sensors}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+      >
         <SortableContext items={containers}>
-          <div className='z-10 w-full items-center justify-around text-sm lg:flex'>
+          <div className='w-full items-center justify-around text-sm lg:flex'>
             {containers.slice(1).map((container, i) => {
               return (
                 <DropZone
@@ -64,7 +86,7 @@ export default function DndPage() {
               );
             })}
           </div>
-          <div className='flex'>
+          <div className='flex justify-between'>
             {containers[0]?.items?.map((id) => {
               const item = items[id];
               return <DropItem key={item.id} item={item} />;
