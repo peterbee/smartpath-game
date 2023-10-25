@@ -69,7 +69,7 @@ export default function DndPage() {
         onDragEnd={handleDragEnd}
       >
         <SortableContext items={containers}>
-          <div className='z-10 w-full items-center justify-around text-sm lg:flex'>
+          <div className='w-full items-center justify-around text-sm lg:flex'>
             {containers.slice(1).map((container, i) => {
               return (
                 <DropZone
@@ -86,7 +86,7 @@ export default function DndPage() {
               );
             })}
           </div>
-          <div className='flex'>
+          <div className='flex justify-between'>
             {containers[0]?.items?.map((id) => {
               const item = items[id];
               return <DropItem key={item.id} item={item} />;
