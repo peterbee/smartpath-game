@@ -10,7 +10,8 @@ import {
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
-import { arrayMove, SortableContext } from '@dnd-kit/sortable';
+import { restrictToWindowEdges } from '@dnd-kit/modifiers';
+import { SortableContext } from '@dnd-kit/sortable';
 
 import Chocolate from '../public/assets/Chocolate_narrow.png';
 import Joel from '../public/assets/Joel_narrow.png';
@@ -67,32 +68,31 @@ export default function DndPage() {
         sensors={sensors}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
+        modifiers={[restrictToWindowEdges]}
       >
-        <SortableContext items={containers}>
-          <div className='w-full items-center justify-around text-sm lg:flex'>
-            {containers.slice(1).map((container, i) => {
-              return (
-                <DropZone
-                  key={container.id}
-                  id={container.id}
-                  title={container.title}
-                  index={i}
-                >
-                  {container.items?.map((id) => {
-                    const item = items[id];
-                    return <DropItem key={item.id} item={item} />;
-                  })}
-                </DropZone>
-              );
-            })}
-          </div>
-          <div className='flex justify-between'>
-            {containers[0]?.items?.map((id) => {
-              const item = items[id];
-              return <DropItem key={item.id} item={item} />;
-            })}
-          </div>
-        </SortableContext>
+        <div className='w-full items-center justify-around text-sm lg:flex'>
+          {containers.slice(1).map((container, i) => {
+            return (
+              <DropZone
+                key={container.id}
+                id={container.id}
+                title={container.title}
+                index={i}
+              >
+                {container.items?.map((id) => {
+                  const item = items[id];
+                  return <DropItem key={item.id} item={item} />;
+                })}
+              </DropZone>
+            );
+          })}
+        </div>
+        <div className='flex justify-between'>
+          {containers[0]?.items?.map((id) => {
+            const item = items[id];
+            return <DropItem key={item.id} item={item} />;
+          })}
+        </div>
       </DndContext>
     </article>
   );
