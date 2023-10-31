@@ -15,7 +15,7 @@ export default function DropItem(props) {
         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
       }
     : undefined;
-  console.log(attributes);
+
   return (
     <button
       ref={setNodeRef}
