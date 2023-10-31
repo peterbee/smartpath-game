@@ -70,7 +70,6 @@ export default function DndPage() {
         onDragEnd={handleDragEnd}
         modifiers={[restrictToWindowEdges]}
       >
-        {/* <SortableContext items={containers}> */}
         <div className='w-full items-center justify-around text-sm lg:flex'>
           {containers.slice(1).map((container, i) => {
             return (
@@ -94,7 +93,6 @@ export default function DndPage() {
             return <DropItem key={item.id} item={item} />;
           })}
         </div>
-        {/* </SortableContext> */}
       </DndContext>
     </article>
   );

@@ -15,7 +15,7 @@ export default function DropItem(props) {
         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
       }
     : undefined;
-
+  console.log(attributes);
   return (
     <button
       ref={setNodeRef}
@@ -33,7 +33,6 @@ export default function DropItem(props) {
           xmlns='http://www.w3.org/2000/svg'
           width='24'
           height='24'
-          // fillRule='currentColor'
           className='bi bi-arrows-move'
           viewBox='0 0 16 16'
         >
@@ -46,10 +45,3 @@ export default function DropItem(props) {
     </button>
   );
 }
-
-// ${
-//   attributes['aria-pressed'] === true
-//   ? 'border-blue'
-//   : 'border-indigo-500'
-// }
-// hover:border-double hover:border-[6px]
