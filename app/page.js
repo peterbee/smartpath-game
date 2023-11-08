@@ -11,12 +11,14 @@ import Joel from '../public/assets/Joel_cartwheel.png';
 import DropItem from './components/dropItem';
 import DropZone from './components/dropZone';
 import DndPage from './dndPage';
+import MultiChoicePage from './multiChoicePage';
 
 export default function Home() {
+  const [interactive, setInteractive] = useState('dnd');
   return (
     <main className='flex min-h-screen flex-col items-center justify-between'>
-      <DndPage />
-      <div>placeholder</div>
+      {interactive == 'dnd' && <DndPage />}
+      <MultiChoicePage />
     </main>
   );
 }

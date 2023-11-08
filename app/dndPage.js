@@ -19,8 +19,18 @@ import DropItem from './components/dropItem';
 import DropZone from './components/dropZone';
 
 const items = {
-  1: { src: Joel, id: 1, alt: 'drawing of a boy doing a cartwheel' },
-  2: { src: Chocolate, id: 2, alt: 'drawing of a chocolate bar' },
+  1: {
+    src: Joel,
+    id: 1,
+    alt: 'drawing of a boy doing a cartwheel',
+    answer: 'service',
+  },
+  2: {
+    src: Chocolate,
+    id: 2,
+    alt: 'drawing of a chocolate bar',
+    answer: 'good',
+  },
 };
 
 export default function DndPage() {
@@ -49,8 +59,9 @@ export default function DndPage() {
   }
 
   function handleDragEnd(event) {
-    const { over } = event;
+    const { active, over } = event;
     if (!over) return;
+    if (over.id !== items[activeId].answer) return;
 
     setContainers((containers) => {
       return containers.map((container) => {
