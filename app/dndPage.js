@@ -11,7 +11,6 @@ import {
   useSensors,
 } from '@dnd-kit/core';
 import { restrictToWindowEdges } from '@dnd-kit/modifiers';
-import { SortableContext } from '@dnd-kit/sortable';
 
 import Chocolate from '../public/assets/Chocolate_narrow.png';
 import Joel from '../public/assets/Joel_narrow.png';
@@ -33,13 +32,13 @@ const items = {
   },
 };
 
-export default function DndPage() {
+export default function DndPage({ setInteractive }) {
   const [containers, setContainers] = useState([
     { id: 'hold', title: '', items: Object.keys(items) },
     { id: 'good', title: 'Good', items: [] },
     { id: 'service', title: 'Service', items: [] },
   ]);
-
+  const [correct, setCorrect] = useState(0);
   const [activeId, setActiveId] = useState(null);
 
   const mouseSensor = useSensor(MouseSensor);
@@ -59,7 +58,7 @@ export default function DndPage() {
   }
 
   function handleDragEnd(event) {
-    const { active, over } = event;
+    const { over } = event;
     if (!over) return;
     if (over.id !== items[activeId].answer) return;
 
@@ -70,8 +69,13 @@ export default function DndPage() {
         return { ...container, items: remainingItems };
       });
     });
+    setCorrect((prev) => prev + 1);
     return setActiveId(null);
   }
+
+  // adjust to be dynamic
+  if (correct === 2)
+    return setTimeout(() => setInteractive('multichoice'), 500);
 
   return (
     <article className='flex min-h-screen flex-col items-center justify-between p-24'>
