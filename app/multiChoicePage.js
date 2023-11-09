@@ -19,7 +19,6 @@ export default function MultiChoicePage() {
   return (
     <div className='w-4/5'>
       <div className='m-7'>
-        {/* <p className='h-3/4 w-3/4'>shopping list image</p> */}
         <h1 className='text-6xl text-left leading-relaxed'>{question}</h1>
         {selected === true && (
           <p className='transition-opacity h-3/4 w-3/4 mt-5 text-4xl text-center text-green-600'>

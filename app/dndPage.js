@@ -74,8 +74,7 @@ export default function DndPage({ setInteractive }) {
   }
 
   // adjust to be dynamic
-  if (correct === 2)
-    return setTimeout(() => setInteractive('multichoice'), 500);
+  if (correct === 2) return setInteractive('multichoice');
 
   return (
     <article className='flex min-h-screen flex-col items-center justify-between p-24'>
