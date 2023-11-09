@@ -13,47 +13,50 @@ const styles = {
   },
   transitionEnterActive: {
     opacity: 1,
-    transition: 'opacity 200ms',
+    transition: 'opacity 400ms',
   },
   transitionExit: {
     opacity: 1,
   },
   transitionExitActive: {
     opacity: 0,
-    transition: 'opacity 200ms',
+    transition: 'opacity 400ms',
   },
 };
 
 export default function Home() {
-  const [interactive, setInteractive] = useState('dnd');
+  const [change, setChange] = useState(false);
   const nodeRef = useRef(null);
 
-  function changeComponent(text) {
-    setInteractive(text);
+  let answered;
+  function changeComponent() {
+    if (!!answered) setChange(!change);
   }
-
+  console.log(change);
   return (
     <main className='flex min-h-screen flex-col items-center justify-between'>
       <TransitionGroup component={null}>
         <CSSTransition
           nodeRef={nodeRef}
-          in={interactive == 'dnd'}
+          in={change}
           appear
           timeout={500}
           unmountOnExit
           classNames='transition'
-          onExit={() => changeComponent('multichoice')}
+          onEntered={changeComponent}
+          onExit={changeComponent}
           styles={{ ...styles }}
         >
-          <DndPage setInteractive={setInteractive} />
+          <DndPage answered={answered} />
         </CSSTransition>
         <CSSTransition
           nodeRef={nodeRef}
-          in={interactive == 'multichoice'}
+          in={change}
           timeout={500}
           unmountOnExit
           classNames='transition'
-          onExit={() => changeComponent('dnd')}
+          onEntered={changeComponent}
+          onExit={changeComponent}
           styles={{ ...styles }}
         >
           <MultiChoicePage />

@@ -32,7 +32,7 @@ const items = {
   },
 };
 
-export default function DndPage({ setInteractive }) {
+export default function DndPage({ answered }) {
   const [containers, setContainers] = useState([
     { id: 'hold', title: '', items: Object.keys(items) },
     { id: 'good', title: 'Good', items: [] },
@@ -74,7 +74,7 @@ export default function DndPage({ setInteractive }) {
   }
 
   // adjust to be dynamic
-  if (correct === 2) return setInteractive('multichoice');
+  if (correct === 2) return (answered = true);
 
   return (
     <article className='flex min-h-screen flex-col items-center justify-between p-24'>
