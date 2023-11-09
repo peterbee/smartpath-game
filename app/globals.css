@@ -25,3 +25,21 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+.transition-enter {
+  opacity: 0;
+}
+
+.transition-enter-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}
+
+.transition-exit {
+  opacity: 1;
+}
+
+.transition-exit-active {
+  opacity: 0;
+  transition: opacity 400ms;
+}

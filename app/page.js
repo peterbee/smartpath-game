@@ -7,23 +7,6 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import DndPage from './dndPage';
 import MultiChoicePage from './multiChoicePage';
 
-const styles = {
-  transitionEnter: {
-    opacity: 0,
-  },
-  transitionEnterActive: {
-    opacity: 1,
-    transition: 'opacity 400ms',
-  },
-  transitionExit: {
-    opacity: 1,
-  },
-  transitionExitActive: {
-    opacity: 0,
-    transition: 'opacity 400ms',
-  },
-};
-
 export default function Home() {
   const [change, setChange] = useState(false);
   const nodeRef = useRef(null);
@@ -45,7 +28,6 @@ export default function Home() {
           classNames='transition'
           onEntered={changeComponent}
           onExit={changeComponent}
-          styles={{ ...styles }}
         >
           <DndPage answered={answered} />
         </CSSTransition>
@@ -57,7 +39,6 @@ export default function Home() {
           classNames='transition'
           onEntered={changeComponent}
           onExit={changeComponent}
-          styles={{ ...styles }}
         >
           <MultiChoicePage />
         </CSSTransition>
