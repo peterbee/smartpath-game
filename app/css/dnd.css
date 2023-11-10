@@ -1,0 +1,22 @@
+.dndBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rem;
+}
+
+.dropZone {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.itemContainer {
+  display: flex;
+  justify-content: space-between;
+}

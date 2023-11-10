@@ -1,0 +1,20 @@
+.dropContainer {
+  border: 5px solid black;
+  width: 392px;
+  height: 477px;
+  margin: 32px 50px;
+}
+
+.dropContainer:hover {
+  border: 5px dashed #337ab7;
+  outline-offset: 8px;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: 0.025em;
+  font-weight: bold;
+  margin-top: 1rem;
+}

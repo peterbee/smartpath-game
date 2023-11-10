@@ -1,4 +1,5 @@
 'use client';
+import './css/dnd.css';
 
 import { useState } from 'react';
 
@@ -77,14 +78,14 @@ export default function DndPage({ answered }) {
   if (correct === 2) return (answered = true);
 
   return (
-    <article className='flex min-h-screen flex-col items-center justify-between p-24'>
+    <article className='dndBox'>
       <DndContext
         sensors={sensors}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
         modifiers={[restrictToWindowEdges]}
       >
-        <div className='w-full items-center justify-around text-sm lg:flex'>
+        <div className='dropZone'>
           {containers.slice(1).map((container, i) => {
             return (
               <DropZone
@@ -101,7 +102,7 @@ export default function DndPage({ answered }) {
             );
           })}
         </div>
-        <div className='flex justify-between'>
+        <div className='itemContainer'>
           {containers[0]?.items?.map((id) => {
             const item = items[id];
             return <DropItem key={item.id} item={item} />;

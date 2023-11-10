@@ -1,4 +1,5 @@
 'use client';
+import './css/page.css';
 
 import { useRef, useState } from 'react';
 
@@ -17,7 +18,7 @@ export default function Home() {
   }
   console.log(change);
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between'>
+    <main>
       <TransitionGroup component={null}>
         <CSSTransition
           nodeRef={nodeRef}
