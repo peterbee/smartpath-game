@@ -1,4 +1,6 @@
 'use client';
+import './css/multiChoice.css';
+
 import { useState } from 'react';
 
 import { CSSTransition } from 'react-transition-group';
@@ -19,25 +21,21 @@ export default function MultiChoicePage() {
   }
 
   return (
-    <div className='w-4/5'>
-      <div className='m-7'>
-        <h1 className='text-6xl text-left leading-relaxed'>{question}</h1>
+    <article className='container'>
+      <div className='questionContainer'>
+        <h1 className='question'>{question}</h1>
         {selected === true && (
           <CSSTransition classNames='transition' in={selected} timeout={500}>
-            <p className='h-3/4 w-3/4 mt-5 text-4xl text-center text-green-600'>
-              Correct!
-            </p>
+            <p className='reply correct'>Correct!</p>
           </CSSTransition>
         )}
         {selected === false && (
           <CSSTransition classNames='transition' in={selected} timeout={500}>
-            <p className='h-3/4 w-3/4 mt-5 text-4xl text-center text-red-600'>
-              Nope, try again!
-            </p>
+            <p className='reply incorrect'>Nope, try again!</p>
           </CSSTransition>
         )}
       </div>
-      <div className='flex justify-around'>
+      <div className='answerContainer'>
         {answers.map((answer) => (
           <MultiAnswer
             key={answer.id}
@@ -46,6 +44,6 @@ export default function MultiChoicePage() {
           />
         ))}
       </div>
-    </div>
+    </article>
   );
 }

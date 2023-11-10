@@ -8,9 +8,6 @@ export default function DropZone({ title, id, index, children }) {
     data: { current: index },
   });
 
-  const hoverStyle =
-    'outline-[5px] outline-dashed outline-blue outline-offset-8';
-
   return (
     <div ref={setNodeRef} className='dropContainer'>
       <h1 className='title'>{title}</h1>

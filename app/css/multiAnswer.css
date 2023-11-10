@@ -1,0 +1,12 @@
+.answer {
+  width: 24rem;
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+  margin: 1.25rem;
+  background-color: black;
+  opacity: 0.75;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  color: white;
+  text-align: center;
+}
