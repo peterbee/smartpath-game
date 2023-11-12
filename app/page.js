@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <main>
-      <SwitchTransition mode='in-out'>
+      <SwitchTransition mode='out-in'>
         <CSSTransition
           key={change}
           nodeRef={nodeRef}

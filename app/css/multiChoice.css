@@ -4,18 +4,20 @@
   align-items: center;
 }
 
-.questionContainer {
-  margin: 1.75rem;
-}
-
 .question {
   font-size: 3.75rem;
   line-height: 1.625;
   text-align: left;
   position: relative;
   right: 0;
+  margin: 1.75rem;
 }
 
+.questionContainer {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
 .reply {
   width: 75%;
   height: 75%;

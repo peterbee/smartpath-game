@@ -75,7 +75,11 @@ export default function DndPage({ setChange }) {
   }
 
   // adjust to be dynamic
-  if (correct === 2) return setChange(true);
+  if (correct === 2) {
+    new Promise((resolve) => {
+      setTimeout(() => resolve(setChange(true)), 1000);
+    });
+  }
 
   return (
     <article className='dndBox'>
@@ -107,6 +111,7 @@ export default function DndPage({ setChange }) {
             const item = items[id];
             return <DropItem key={item.id} item={item} />;
           })}
+          {correct === 2 && <p className='reply correct'>Correct!</p>}
         </div>
       </DndContext>
     </article>

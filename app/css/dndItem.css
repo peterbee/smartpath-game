@@ -48,3 +48,16 @@
   fill: #337ab7;
   box-shadow: 0px 0px 5px 0px #337ab7;
 }
+
+.reply {
+  width: 75%;
+  height: 75%;
+  margin-top: 1.25rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  text-align: center;
+}
+
+.correct {
+  color: rgb(22 163 74);
+}
