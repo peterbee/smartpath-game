@@ -1,22 +1,40 @@
 'use client';
+import './css/page.css';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
-import Image from 'next/image';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
-import { DndContext } from '@dnd-kit/core';
-
-import Chocolate from '../public/assets/chocolate.png';
-import Joel from '../public/assets/Joel_cartwheel.png';
-import DropItem from './components/dropItem';
-import DropZone from './components/dropZone';
 import DndPage from './dndPage';
+import MultiChoicePage from './multiChoicePage';
 
 export default function Home() {
+  const [change, setChange] = useState(false);
+  const dndRef = useRef(null);
+  const multiRef = useRef(null);
+  const nodeRef = change ? multiRef : dndRef;
+
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between'>
-      <DndPage />
-      <div>placeholder</div>
+    <main>
+      <SwitchTransition mode='out-in'>
+        <CSSTransition
+          key={change}
+          nodeRef={nodeRef}
+          timeout={500}
+          classNames='transition'
+          addEndListener={(done) => {
+            nodeRef.current.addEventListener('transitionend', done, false);
+          }}
+        >
+          <div ref={nodeRef}>
+            {change ? (
+              <MultiChoicePage setChange={setChange} />
+            ) : (
+              <DndPage setChange={setChange} />
+            )}
+          </div>
+        </CSSTransition>
+      </SwitchTransition>
     </main>
   );
 }

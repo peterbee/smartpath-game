@@ -1,0 +1,63 @@
+.itemButton {
+  width: 18rem;
+  height: 8rem;
+  margin: 1.25rem;
+  display: flex;
+  justify-content: space-around;
+  border: 4px solid #337ab7;
+  border-radius: 8px;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.itemButton:hover {
+  outline: 4px solid #337ab7;
+  border: 8px solid #fff;
+  outline-offset: -12px;
+  border-radius: 14px;
+  box-shadow: 0px 0px 5px 0px rgba(51, 122, 183, 0.25);
+  filter: none;
+}
+
+.itemButton:focus {
+  outline: none;
+  border: 8px double #337ab7;
+  border-radius: 5px;
+  filter: none;
+  cursor: move;
+}
+
+.image {
+  width: 10rem;
+  margin: 1.25rem;
+}
+
+.arrows {
+  display: flex;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-self: flex-start;
+  border: 2px solid #337ab7;
+  border-radius: 8px;
+  fill: currentColor;
+}
+
+.arrows:hover {
+  fill: #337ab7;
+  box-shadow: 0px 0px 5px 0px #337ab7;
+}
+
+.reply {
+  width: 75%;
+  height: 75%;
+  margin-top: 1.25rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  text-align: center;
+}
+
+.correct {
+  color: rgb(22 163 74);
+}

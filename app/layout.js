@@ -1,4 +1,4 @@
-import './globals.css';
+import './css/globals.css';
 
 import { Open_Sans } from 'next/font/google';
 

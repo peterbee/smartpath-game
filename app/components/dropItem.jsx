@@ -1,3 +1,5 @@
+import '../css/dndItem.css';
+
 import Image from 'next/image';
 
 import { useDraggable } from '@dnd-kit/core';
@@ -23,12 +25,10 @@ export default function DropItem(props) {
       {...listeners}
       {...attributes}
       aria-describedby={alt}
-      className={`w-72 h-32 m-5 flex justify-around rounded-lg border-4 border-blue shadow-xl ${
-        isDragging ? 'border-double border-8 border-blue' : null
-      } hover:shadow-spec hover: cursor-move focus:border-double focus:border-8 focus:border-blue`}
+      className='itemButton'
     >
-      <Image className='w-40 m-5' src={src} alt={alt} />
-      <div className='flex flex-start mt-2 p-2 w-11 h-11 self-start rounded-lg border-blue border-2 fill-current hover:fill-blue hover:shadow-arrows'>
+      <Image className='image' src={src} alt={alt} />
+      <div className='arrows'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='24'
