@@ -9,7 +9,7 @@ export default function DropZone({ title, id, index, children }) {
   });
 
   return (
-    <div ref={setNodeRef} className='dropContainer'>
+    <div ref={setNodeRef} className={`dropContainer ${isOver ? `over` : null}`}>
       <h1 className='title'>{title}</h1>
       {children}
     </div>

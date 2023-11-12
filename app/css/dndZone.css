@@ -5,8 +5,9 @@
   margin: 32px 50px;
 }
 
-.dropContainer:hover {
-  border: 5px dashed #337ab7;
+.over {
+  border: 5px solid black;
+  outline: 5px dashed #337ab7;
   outline-offset: 8px;
 }
 

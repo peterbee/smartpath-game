@@ -3,47 +3,38 @@ import './css/page.css';
 
 import { useRef, useState } from 'react';
 
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 import DndPage from './dndPage';
 import MultiChoicePage from './multiChoicePage';
 
 export default function Home() {
   const [change, setChange] = useState(false);
-  const nodeRef = useRef(null);
+  const dndRef = useRef(null);
+  const multiRef = useRef(null);
+  const nodeRef = change ? multiRef : dndRef;
 
-  let answered;
-  function changeComponent() {
-    if (!!answered) setChange(!change);
-  }
-  console.log(change);
   return (
     <main>
-      <TransitionGroup component={null}>
+      <SwitchTransition mode='in-out'>
         <CSSTransition
+          key={change}
           nodeRef={nodeRef}
-          in={change}
-          appear
           timeout={500}
-          unmountOnExit
           classNames='transition'
-          onEntered={changeComponent}
-          onExit={changeComponent}
+          addEndListener={(done) => {
+            nodeRef.current.addEventListener('transitionend', done, false);
+          }}
         >
-          <DndPage answered={answered} />
+          <div ref={nodeRef}>
+            {change ? (
+              <MultiChoicePage setChange={setChange} />
+            ) : (
+              <DndPage setChange={setChange} />
+            )}
+          </div>
         </CSSTransition>
-        <CSSTransition
-          nodeRef={nodeRef}
-          in={change}
-          timeout={500}
-          unmountOnExit
-          classNames='transition'
-          onEntered={changeComponent}
-          onExit={changeComponent}
-        >
-          <MultiChoicePage />
-        </CSSTransition>
-      </TransitionGroup>
+      </SwitchTransition>
     </main>
   );
 }

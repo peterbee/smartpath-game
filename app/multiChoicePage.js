@@ -7,7 +7,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import MultiAnswer from './components/MultiAnswer';
 
-export default function MultiChoicePage() {
+export default function MultiChoicePage({ setChange }) {
   const answers = [
     { id: 1, text: 'Yes', correct: true },
     { id: 2, text: 'No', correct: false },
@@ -20,17 +20,15 @@ export default function MultiChoicePage() {
     setSelected(answer.correct);
   }
 
+  if (!!selected) return setChange(false);
+
   return (
     <article className='container'>
       <div className='questionContainer'>
         <h1 className='question'>{question}</h1>
-        {selected === true && (
-          <CSSTransition classNames='transition' in={selected} timeout={500}>
-            <p className='reply correct'>Correct!</p>
-          </CSSTransition>
-        )}
+        {selected === true && <p className='reply correct'>Correct!</p>}
         {selected === false && (
-          <CSSTransition classNames='transition' in={selected} timeout={500}>
+          <CSSTransition classNames='transition' in={!selected} timeout={500}>
             <p className='reply incorrect'>Nope, try again!</p>
           </CSSTransition>
         )}

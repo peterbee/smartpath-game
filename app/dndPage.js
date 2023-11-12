@@ -33,7 +33,7 @@ const items = {
   },
 };
 
-export default function DndPage({ answered }) {
+export default function DndPage({ setChange }) {
   const [containers, setContainers] = useState([
     { id: 'hold', title: '', items: Object.keys(items) },
     { id: 'good', title: 'Good', items: [] },
@@ -75,7 +75,7 @@ export default function DndPage({ answered }) {
   }
 
   // adjust to be dynamic
-  if (correct === 2) return (answered = true);
+  if (correct === 2) return setChange(true);
 
   return (
     <article className='dndBox'>
