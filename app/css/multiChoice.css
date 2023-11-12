@@ -36,8 +36,10 @@
 }
 
 .answerContainer {
+  width: 100%;
   position: fixed;
   bottom: 0;
   display: flex;
   gap: 50px;
+  justify-content: center;
 }
