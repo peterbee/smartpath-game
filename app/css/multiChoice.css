@@ -1,5 +1,7 @@
 .container {
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .questionContainer {
@@ -10,6 +12,8 @@
   font-size: 3.75rem;
   line-height: 1.625;
   text-align: left;
+  position: relative;
+  right: 0;
 }
 
 .reply {
@@ -30,6 +34,8 @@
 }
 
 .answerContainer {
+  position: fixed;
+  bottom: 0;
   display: flex;
-  justify-content: space-around;
+  gap: 50px;
 }
