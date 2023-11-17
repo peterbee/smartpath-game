@@ -11,3 +11,12 @@
   color: white;
   text-align: center;
 }
+
+.answer:focus {
+  border: 4px solid #337ab7;
+}
+
+.answer:hover {
+  border: 4px solid #337ab7;
+  border-radius: 5px;
+}
