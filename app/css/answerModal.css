@@ -1,0 +1,40 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  width: 450px;
+  padding: 1.3rem;
+  min-height: 250px;
+  position: absolute;
+  top: 20%;
+  background-color: rgb(0, 0, 0, 0.75);
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  color: white;
+  z-index: 2;
+}
+
+.multiReply {
+  margin-right: 36px;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.true {
+  color: rgb(22 163 74);
+}
+
+.false {
+  color: rgb(220 38 38);
+}
+
+.close-button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border: 1px solid white;
+}

@@ -18,22 +18,6 @@
   gap: 25px;
   align-items: center;
 }
-.reply {
-  width: 75%;
-  height: 75%;
-  margin-top: 1.25rem;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  text-align: center;
-}
-
-.correct {
-  color: rgb(22 163 74);
-}
-
-.incorrect {
-  color: rgb(220 38 38);
-}
 
 .answerContainer {
   width: 100%;
