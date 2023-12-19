@@ -7,15 +7,12 @@
     href="https://assets-global.website-files.com/64f205445005fd88ad5ca350/64fb8c256f7b21fc591433c4_favicon-smartpath.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SmartPath Game</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"
-    integrity="sha512-8Q6Y9XnTbOE+JNvjBQwJ2H8S+UV4uA6hiRykhdtIyDYZ2TprdNmWOUaKdGzOhyr4dCyk287OejbPvwl7lrfqrQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module">
-    import SmartPathGame from "../src/lib.jsx";
+    import SmartPathGame from "../dist/smartpath-game.js";
     const Config = await fetch("./config.json").then(r => r.json());
     SmartPathGame.Init(document.getElementById("root"), Config);
   </script>

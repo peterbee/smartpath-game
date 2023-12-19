@@ -1,13 +1,15 @@
-This project is built with [Vitejs](https://vitejs.dev/).
+## Live demo
 
-## SmartPath Game configuration
+[View demo](https://peterbee.github.io/smartpath-game/example/)
+
+## Game configuration
 
 ```html
 <div id="root"></div>
 <script type="module">
-  import Config from './config.json';
- import SmartPathGame from "https://peterbee.github.io/smartpath-game/dist/smartpath-game.js"; 
- SmartPathGame.Init(document.getElementById('root'), Config);
+  import SmartPathGame from "https://peterbee.github.io/smartpath-game/dist/smartpath-game.js";
+  const Config = await fetch("./config.json").then(r => r.json());
+  SmartPathGame.Init(document.getElementById("root"), Config);
 <script>
 ```
 
@@ -25,4 +27,4 @@ Run development mode:
 npm start
 ```
 
-Open [http://localhost:5173/dev-root/](http://localhost:5173/dev-root/) with your browser to see the result.
+Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
