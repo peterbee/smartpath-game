@@ -6,6 +6,9 @@ import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
+  define: {
+    'process.env.NODE_ENV': '"production"'
+  },
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
@@ -14,18 +17,6 @@ export default defineConfig({
       name: 'SmartPathGame',
       // the proper extensions will be added
       fileName: 'smartpath-game',
-    },
-    rollupOptions: {
-      // make sure to externalize deps that shouldn't be bundled
-      // into your library
-      external: ['react'],
-      output: {
-        // Provide global variables to use in the UMD build
-        // for externalized deps
-        globals: {
-          react: 'React',
-        },
-      },
     },
   },
   plugins: [react(), cssInjectedByJsPlugin()],

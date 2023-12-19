@@ -6,47 +6,14 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SmartPath Game</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"
-    integrity="sha512-8Q6Y9XnTbOE+JNvjBQwJ2H8S+UV4uA6hiRykhdtIyDYZ2TprdNmWOUaKdGzOhyr4dCyk287OejbPvwl7lrfqrQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module">
-    // import Config from './config.json';
     import SmartPathGame from "../src/lib.jsx";
-    window.SmartPathGame = SmartPathGame;
-    SmartPathGame.Init(document.getElementById('root'), {
-      "sequence": [
-        {
-          "type": "categorize",
-          "zones": [
-            { "id": "good", "html": "Good" },
-            { "id": "service", "html": "Service" },
-          ],
-          "tokens": [
-            {
-              "image": { "src": "./assets/Joel_narrow.png", "alt": "drawing of a boy doing a cartwheel" },
-              "answer": "service"
-            },
-            {
-              "image": { "src": "./assets/Chocolate_narrow.png", "alt": "drawing of a chocolate bar" },
-              "answer": "good"
-            },
-          ]
-        },
-        {
-          "type": "question",
-          "html": "What's the best type of payment?",
-          "image": { "src": "./assets/hot-dog-cart.png", "alt": "drawing of hot dog stand" },
-          "options": [
-            { "html": "Cash", "correct": true },
-            { "html": "Card" },
-          ]
-        },
-      ]
-    });
+    import Config from './config.json';
+    SmartPathGame.Init(document.getElementById('root'), Config);
   </script>
 </body>
 
