@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 main {
+  font-family: 'Open Sans', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +14,7 @@ main {
 
 .transition-enter {
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateX(100%);
 }
 
 .transition-enter-active {
@@ -26,7 +29,7 @@ main {
 
 .transition-exit-active {
   opacity: 0;
-  transform: translateX(100%);
+  transform: translateX(-100%);
 }
 
 .transition-enter-active,

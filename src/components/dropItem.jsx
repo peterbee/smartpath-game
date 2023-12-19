@@ -1,11 +1,9 @@
 import '../css/dndItem.css';
 
-import Image from 'next/image';
-
 import { useDraggable } from '@dnd-kit/core';
 
 export default function DropItem(props) {
-  const { id, alt, src } = props.item;
+  const { id, alt, image } = props.item;
   const { active, attributes, isDragging, listeners, setNodeRef, transform } =
     useDraggable({
       id: id,
@@ -14,8 +12,8 @@ export default function DropItem(props) {
 
   const style = transform
     ? {
-        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-      }
+      transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+    }
     : undefined;
 
   return (
@@ -27,7 +25,7 @@ export default function DropItem(props) {
       aria-describedby={alt}
       className='itemButton'
     >
-      <Image className='image' src={src} alt={alt} />
+      <img className='image' {...image} style={{ pointerEvents: "none" }} />
       <div className='arrows'>
         <svg
           xmlns='http://www.w3.org/2000/svg'

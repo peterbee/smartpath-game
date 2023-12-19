@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartPath Game</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"
+    integrity="sha512-8Q6Y9XnTbOE+JNvjBQwJ2H8S+UV4uA6hiRykhdtIyDYZ2TprdNmWOUaKdGzOhyr4dCyk287OejbPvwl7lrfqrQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="module">
+    import Config from './config.json';
+    import SmartPathGame from "../dist/smartpath-game.js";
+    SmartPathGame.Init(document.getElementById('root'), Config);
+  </script>
+</body>
+
+</html>

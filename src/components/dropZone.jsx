@@ -2,7 +2,7 @@ import '../css/dndZone.css';
 
 import { useDroppable } from '@dnd-kit/core';
 
-export default function DropZone({ title, id, index, children }) {
+export default function DropZone({ html, id, index, children }) {
   const { isOver, setNodeRef } = useDroppable({
     id: id,
     data: { current: index },
@@ -10,7 +10,7 @@ export default function DropZone({ title, id, index, children }) {
 
   return (
     <div ref={setNodeRef} className={`dropContainer ${isOver ? `over` : null}`}>
-      <h1 className='title'>{title}</h1>
+      <h1 className='title' dangerouslySetInnerHTML={{ __html: html }} />
       {children}
     </div>
   );

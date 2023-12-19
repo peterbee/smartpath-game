@@ -1,24 +1,17 @@
 'use client';
 import './css/multiChoice.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import Image from 'next/image';
-
-import Ding from '../public/assets/ding.mp3';
-import HotDogStand from '../public/assets/hot-dog-cart.png';
-import TryAgain from '../public/assets/try-again.mp3';
+import Ding from './audio/ding.mp3';
+import TryAgain from './audio/try-again.mp3';
 import MultiAnswer from './components/MultiAnswer';
 import AnswerModal from './components/AnswerModal';
 
-export default function MultiChoicePage({ setChange }) {
+export default function MultiChoicePage({ advanceStep, config }) {
+  const answers = config.options;
   const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  const answers = [
-    { id: 1, text: 'Cash', correct: true },
-    { id: 2, text: 'Card', correct: false },
-  ];
-  const question = "What's the best type of payment?";
 
   let correctSound = new Audio(Ding);
   let incorrectSound = new Audio(TryAgain);
@@ -37,23 +30,23 @@ export default function MultiChoicePage({ setChange }) {
     playResponse(answer.correct);
   }
 
-  if (!!selected) {
-    new Promise((resolve) => {
-      setTimeout(() => resolve(setChange(false)), 1000);
-    });
-  }
+  useEffect(() => {
+    if (!!selected) {
+      setTimeout(advanceStep, 1000);
+    }
+  }, [advanceStep, selected]);
 
   return (
     <article className='container'>
-      <h1 className='question'>{question}</h1>
+      <h1 className='question' dangerouslySetInnerHTML={{ __html: config.html }} />
       <div className='questionContainer'>
-        <Image src={HotDogStand} alt='drawing of hot dog stand' />
+        <img {...config.image} />
         {isOpen && <AnswerModal answer={selected} setIsOpen={setIsOpen} />}
       </div>
       <div className='answerContainer'>
-        {answers.map((answer) => (
+        {answers.map((answer, index) => (
           <MultiAnswer
-            key={answer.id}
+            key={index}
             answer={answer}
             inputSelection={selectAnswer}
           />

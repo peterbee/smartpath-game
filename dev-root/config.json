@@ -1,0 +1,62 @@
+{
+  "sequence": [
+    {
+      "type": "video",
+      "file": "path/to/video_1.mp4"
+    },
+    {
+      "type": "categorize",
+      "zones": [
+        {
+          "id": "good",
+          "html": "Good"
+        },
+        {
+          "id": "service",
+          "html": "Service"
+        }
+      ],
+      "tokens": [
+        {
+          "image": {
+            "src": "./assets/Joel_narrow.png",
+            "alt": "drawing of a boy doing a cartwheel"
+          },
+          "answer": "service"
+        },
+        {
+          "image": {
+            "src": "./assets/Chocolate_narrow.png",
+            "alt": "drawing of a chocolate bar"
+          },
+          "answer": "good"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "file": "path/to/video_2.mp4"
+    },
+    {
+      "type": "question",
+      "html": "What's the best type of payment?",
+      "image": {
+        "src": "./assets/hot-dog-cart.png",
+        "alt": "drawing of hot dog stand"
+      },
+      "options": [
+        {
+          "html": "Cash",
+          "correct": true
+        },
+        {
+          "html": "Card"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "file": "path/to/video_3.mp4"
+    }
+  ]
+}
