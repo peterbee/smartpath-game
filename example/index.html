@@ -12,9 +12,33 @@
 <body>
   <div id="root"></div>
   <script type="module">
-    import SmartPathGame from "../dist/smartpath-game.js";
-    const Config = await fetch("./config.json").then(r => r.json());
-    SmartPathGame.Init(document.getElementById("root"), Config);
+    import SmartPathGame from "https://peterbee.github.io/smartpath-game/dist/smartpath-game.js";
+
+    const config = {
+      sequence: [
+        {
+          type: "categorize", zones: [
+            { id: "good", html: "Good" },
+            { id: "service", html: "Service" },
+          ],
+          tokens: [
+            { image: { src: "./assets/Joel_narrow.png", alt: "drawing of a boy doing a cartwheel" }, answer: "service" },
+            { image: { src: "./assets/Chocolate_narrow.png", alt: "drawing of a chocolate bar" }, answer: "good" },
+          ]
+        },
+        {
+          type: "question",
+          html: "What's the best type of payment?",
+          image: { src: "./assets/hot-dog-cart.png", alt: "drawing of hot dog stand" },
+          options: [
+            { html: "Cash", correct: true },
+            { html: "Card" },
+          ]
+        }
+      ]
+    }
+
+    SmartPathGame.Init(document.getElementById("root"), config);
   </script>
 </body>
 

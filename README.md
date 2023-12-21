@@ -8,8 +8,8 @@
 <div id="root"></div>
 <script type="module">
   import SmartPathGame from "https://peterbee.github.io/smartpath-game/dist/smartpath-game.js";
-  const Config = await fetch("./config.json").then(r => r.json());
-  SmartPathGame.Init(document.getElementById("root"), Config);
+  const config = { /* game configuration */ };
+  SmartPathGame.Init(document.getElementById("root"), config);
 <script>
 ```
 
