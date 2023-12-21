@@ -10,16 +10,13 @@ export default function DropItem(props) {
       attributes: { roleDescription: alt },
     });
 
-  const style = transform
-    ? {
-      transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-    }
-    : undefined;
-
   return (
     <button
       ref={setNodeRef}
-      style={style}
+      style={{
+        transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : 'none',
+        transition: isDragging ? "none" : "transform 0.3s",
+      }}
       {...listeners}
       {...attributes}
       aria-describedby={alt}

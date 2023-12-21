@@ -8974,14 +8974,15 @@ function rc(e) {
   const { id: t, alt: n, image: r } = e.item, { active: l, attributes: o, isDragging: i, listeners: u, setNodeRef: s, transform: a } = jm({
     id: t,
     attributes: { roleDescription: n }
-  }), A = a ? {
-    transform: `translate3d(${a.x}px, ${a.y}px, 0)`
-  } : void 0;
+  });
   return /* @__PURE__ */ I.jsxs(
     "button",
     {
       ref: s,
-      style: A,
+      style: {
+        transform: a ? `translate3d(${a.x}px, ${a.y}px, 0)` : "none",
+        transition: i ? "none" : "transform 0.3s"
+      },
       ...u,
       ...o,
       "aria-describedby": n,
