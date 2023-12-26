@@ -17,6 +17,10 @@
     const config = {
       sequence: [
         {
+          "type": "video",
+          "video": { "src": "./assets/sample-video.mp4" },
+        },
+        {
           type: "categorize", zones: [
             { id: "good", html: "Good" },
             { id: "service", html: "Service" },
@@ -25,6 +29,10 @@
             { image: { src: "./assets/Joel_narrow.png", alt: "drawing of a boy doing a cartwheel" }, answer: "service" },
             { image: { src: "./assets/Chocolate_narrow.png", alt: "drawing of a chocolate bar" }, answer: "good" },
           ]
+        },
+        {
+          "type": "video",
+          "video": { "src": "./assets/sample-video.mp4" },
         },
         {
           type: "question",

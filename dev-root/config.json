@@ -2,7 +2,9 @@
   "sequence": [
     {
       "type": "video",
-      "file": "path/to/video_1.mp4"
+      "video": {
+        "src": "./assets/sample-video.mp4"
+      }
     },
     {
       "type": "categorize",
@@ -35,7 +37,9 @@
     },
     {
       "type": "video",
-      "file": "path/to/video_2.mp4"
+      "video": {
+        "src": "./assets/sample-video.mp4"
+      }
     },
     {
       "type": "question",
@@ -53,10 +57,6 @@
           "html": "Card"
         }
       ]
-    },
-    {
-      "type": "video",
-      "file": "path/to/video_3.mp4"
     }
   ]
 }
