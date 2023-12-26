@@ -13,6 +13,7 @@ import {
 } from '@dnd-kit/core';
 import { restrictToWindowEdges } from '@dnd-kit/modifiers';
 
+import audio from './audioFeedback';
 import DropItem from './components/dropItem';
 import DropZone from './components/dropZone';
 
@@ -45,7 +46,7 @@ export default function DndPage({ advanceStep, config }) {
   function handleDragEnd(event) {
     const { over } = event;
     if (!over) return;
-    if (over.id !== tokens[activeId].answer) return;
+    if (over.id !== tokens[activeId].answer) return audio.play(false);
 
     setZones((zones) => {
       return zones.map((zone) => {
@@ -55,6 +56,7 @@ export default function DndPage({ advanceStep, config }) {
       });
     });
     setCorrect((prev) => prev + 1);
+    audio.play(true);
     return setActiveId(null);
   }
 
