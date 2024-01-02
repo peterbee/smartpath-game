@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import audio from './audioFeedback';
 import MultiAnswer from './components/MultiAnswer';
-import AnswerModal from './components/AnswerModal';
+// import AnswerModal from './components/AnswerModal';
 
 export default function MultiChoicePage({ advanceStep, config }) {
   const answers = config.options;
@@ -29,7 +29,7 @@ export default function MultiChoicePage({ advanceStep, config }) {
       <h1 className='question' dangerouslySetInnerHTML={{ __html: config.html }} />
       <div className='questionContainer'>
         <img {...config.image} />
-        {isOpen && <AnswerModal answer={selected} setIsOpen={setIsOpen} />}
+        {/* {isOpen && <AnswerModal answer={selected} setIsOpen={setIsOpen} />} */}
       </div>
       <div className='answerContainer'>
         {answers.map((answer, index) => (

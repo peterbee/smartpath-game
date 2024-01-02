@@ -95,7 +95,7 @@ export default function DndPage({ advanceStep, config }) {
             const item = tokens[id];
             return <DropItem key={id} item={item} />;
           })}
-          {correct === 2 && <p className='reply correct'>Correct!</p>}
+          {/* {correct === 2 && <p className='reply correct'>Correct!</p>} */}
         </div>
       </DndContext>
     </article>
