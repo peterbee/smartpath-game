@@ -1,11 +1,11 @@
 import Ding from './audio/ding.mp3';
-import TryAgain from './audio/try-again.mp3';
+import Buzzer from './audio/buzzer.mp3';
 
 const sounds = {
   true: new Audio(Ding),
-  false: new Audio(TryAgain),
+  false: new Audio(Buzzer),
   "ding": new Audio(Ding),
-  "try-again": new Audio(TryAgain),
+  "try-again": new Audio(Buzzer),
 }
 
 export default {

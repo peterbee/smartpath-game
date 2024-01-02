@@ -10,8 +10,8 @@ export default ({ advanceStep, config: { video } }) => {
   useEffect(() => {
     if (!videoRef.current) return;
 
-    videoRef.current.removeEventListener('playing', hideControls);
-    videoRef.current.addEventListener('playing', hideControls);
+    // videoRef.current.removeEventListener('playing', hideControls);
+    // videoRef.current.addEventListener('playing', hideControls);
     videoRef.current.removeEventListener('ended', nextSlide);
     videoRef.current.addEventListener('ended', nextSlide);
   }, []);

@@ -23,7 +23,16 @@ export default function Home({ config }) {
   const refs = useRef(sequence.map(() => createRef()));
   const nodeRef = refs.current[stepNumber];
 
-  const advanceStep = useCallback((inc = 1) => setStepNumber(s => (s + inc) % sequence.length), []);
+  const advanceStep = useCallback((inc = 1) => {
+    setStepNumber(s => {
+      if (s + inc >= sequence.length) {
+        window?.parent?.playNextSlide?.() || console.log("Play next slide");
+        return s;
+      } else {
+        return s + inc;
+      }
+    })
+  }, []);
 
   const StepComponent = getComponentForType(sequence?.[stepNumber]?.type);
 
