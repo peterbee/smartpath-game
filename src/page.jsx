@@ -10,8 +10,8 @@ import VideoPage from './videoPage';
 
 const getComponentForType = (type) => {
   switch (type) {
-    case "categorize": return DndPage;
-    case "question": return MultiChoicePage;
+    case "matching": return DndPage;
+    case "multiple-choice": return MultiChoicePage;
     case "video": return VideoPage;
     default: return ({ advanceStep }) => <div><p>Missing component for type `{type}`</p><button onClick={() => advanceStep()}>Next &gt;</button></div>;
   }

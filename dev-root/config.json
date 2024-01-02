@@ -7,7 +7,7 @@
       }
     },
     {
-      "type": "categorize",
+      "type": "matching",
       "zones": [
         {
           "id": "good",
@@ -42,7 +42,7 @@
       }
     },
     {
-      "type": "question",
+      "type": "multiple-choice",
       "html": "What's the best type of payment?",
       "image": {
         "src": "./assets/hot-dog-cart.png",

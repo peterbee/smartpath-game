@@ -9127,9 +9127,9 @@ const lg = ({ advanceStep: e, config: { video: t } }) => {
   }, []), /* @__PURE__ */ U.jsx("article", { style: { display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100vh" }, children: /* @__PURE__ */ U.jsx("video", { autoPlay: !0, controls: r, width: "100%", ref: n, children: /* @__PURE__ */ U.jsx("source", { type: "video/mp4", ...t }) }) });
 }, og = (e) => {
   switch (e) {
-    case "categorize":
+    case "matching":
       return eg;
-    case "question":
+    case "multiple-choice":
       return rg;
     case "video":
       return lg;
