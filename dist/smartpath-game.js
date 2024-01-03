@@ -1,8 +1,8 @@
-(function(){"use strict";try{if(typeof document<"u"){var t=document.createElement("style");t.appendChild(document.createTextNode('@import"https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap";*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}:before,:after{--tw-content: ""}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button,[role=button]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*,:before,:after{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.flex{display:flex}.hidden{display:none}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}main{font-family:Open Sans,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:space-between}.transition-enter{opacity:0}.transition-enter-active,.transition-exit{opacity:1}.transition-exit-active{opacity:0}.transition-enter-active,.transition-exit-active{transition:opacity .3s,transform .5s}.dndBox{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:6rem}.dropZone{width:auto;display:flex;flex-direction:row;align-items:center;justify-content:space-around;font-size:.875rem;line-height:1.25rem}.itemContainer{display:flex;justify-content:space-between;align-items:center}.itemButton{width:18rem;height:8rem;margin:1.25rem;display:flex;justify-content:space-around;background:#fff;border:4px solid #337ab7;border-radius:8px;box-shadow:0 20px 25px -5px #0000001a,0 8px 10px -6px #0000001a}.itemButton:hover{outline:4px solid #337ab7;border:8px solid #fff;outline-offset:-12px;border-radius:14px;box-shadow:0 0 5px #337ab740;filter:none}.itemButton:focus{outline:none;border:8px double #337ab7;border-radius:5px;filter:none;cursor:move}.image{width:10rem;margin:1.25rem}.arrows{display:flex;margin-top:.5rem;padding:.5rem;width:2.75rem;height:2.75rem;align-self:flex-start;border:2px solid #337ab7;border-radius:8px;fill:currentColor}.arrows:hover{fill:#337ab7;box-shadow:0 0 5px #337ab7}.reply{width:75%;height:75%;margin-top:1.25rem;font-size:2.25rem;line-height:2.5rem;text-align:center}.correct{color:#16a34a}.dropContainer{border:5px solid black;width:392px;height:477px;margin:32px 50px}.over{border:5px solid black;outline:5px dashed #337ab7;outline-offset:8px}.title{text-align:center;font-size:3rem;line-height:1;letter-spacing:.025em;font-weight:700;margin-top:1rem}.container{display:flex;flex-direction:column;align-items:center}.question{font-size:3.75rem;line-height:1.625;text-align:left;position:relative;right:0;margin:1.75rem}.questionContainer{display:flex;gap:25px;align-items:center}.answerContainer{width:100%;position:fixed;bottom:0;display:flex;gap:50px;justify-content:center}.answer{width:26.5%;height:80.5%;padding-top:2.25rem;padding-bottom:2.25rem;background-color:#000000bf;background-size:100% 100%;inset:85.13% auto auto 22.5%;font-size:60px;line-height:2.5rem;color:#fff;text-align:center}.answer:focus{border:4px solid #337ab7}.answer:hover{border:4px solid #337ab7;border-radius:5px}.video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:4px solid #337ab7;background:#fff;border-radius:999px;width:100px;height:100px;box-shadow:0 20px 25px -5px #0000001a,0 8px 10px -6px #0000001a}.video-play:hover{background:#d9d9d9;box-shadow:0 0 5px #337ab740}.video-play:focus{outline:none;border:8px double #337ab7}')),document.head.appendChild(t)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
+(function(){"use strict";try{if(typeof document<"u"){var t=document.createElement("style");t.appendChild(document.createTextNode('@import"https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap";*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}:before,:after{--tw-content: ""}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button,[role=button]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*,:before,:after{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.flex{display:flex}.hidden{display:none}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}main{font-family:Open Sans,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:space-between}.transition-enter{opacity:0}.transition-enter-active,.transition-exit{opacity:1}.transition-exit-active{opacity:0}.transition-enter-active,.transition-exit-active{transition:opacity .3s,transform .5s}.dndBox{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:6rem}.dropZone{width:auto;display:flex;flex-direction:row;align-items:center;justify-content:space-around;font-size:.875rem;line-height:1.25rem}.itemContainer{display:flex;justify-content:space-between;align-items:center}.itemButton{width:18rem;height:8rem;margin:1.25rem;display:flex;justify-content:space-around;background:#fff;border:4px solid #337ab7;border-radius:8px;box-shadow:0 20px 25px -5px #0000001a,0 8px 10px -6px #0000001a}.itemButton:hover{outline:4px solid #337ab7;border:8px solid #fff;outline-offset:-12px;border-radius:14px;box-shadow:0 0 5px #337ab740;filter:none}.itemButton:focus{outline:none;border:8px double #337ab7;border-radius:5px;filter:none;cursor:move}.image{width:10rem;margin:1.25rem}.arrows{display:flex;margin-top:.5rem;padding:.5rem;width:2.75rem;height:2.75rem;align-self:flex-start;border:2px solid #337ab7;border-radius:8px;fill:currentColor}.arrows:hover{fill:#337ab7;box-shadow:0 0 5px #337ab7}.reply{width:75%;height:75%;margin-top:1.25rem;font-size:2.25rem;line-height:2.5rem;text-align:center}.correct{color:#16a34a}.dropContainer{border:5px solid black;width:392px;height:477px;margin:32px 50px}.over{border:5px solid black;outline:5px dashed #337ab7;outline-offset:8px}.title{text-align:center;font-size:3rem;line-height:1;letter-spacing:.025em;font-weight:700;margin-top:1rem}.container{display:flex;flex-direction:column;align-items:center}.question{font-size:3.75rem;line-height:1.625;text-align:left;position:relative;right:0;margin:1.75rem}.questionContainer{display:flex;gap:25px;align-items:center}.answerContainer{width:100%;position:fixed;bottom:0;display:flex;gap:50px;justify-content:center}.answer{width:26.5%;height:80.5%;padding-top:2.25rem;padding-bottom:2.25rem;background-color:#000000bf;background-size:100% 100%;inset:85.13% auto auto 22.5%;font-size:60px;line-height:2.5rem;color:#fff;text-align:center}.answer:focus{border:4px solid #337ab7}.answer:hover{border:4px solid #337ab7;border-radius:5px}.video-play{color:#337ab7;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:4px solid #337ab7;background:#fff;border-radius:999px;width:100px;height:100px;box-shadow:0 20px 25px -5px #0000001a,0 8px 10px -6px #0000001a;display:flex;align-items:center;justify-content:center}.video-play:hover{background:#d9d9d9;box-shadow:0 0 5px #337ab740}.video-play:focus{outline:none;border:8px double #337ab7}')),document.head.appendChild(t)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
 function sc(e) {
   return e && e.__esModule && Object.prototype.hasOwnProperty.call(e, "default") ? e.default : e;
 }
-var ac = { exports: {} }, go = {}, cc = { exports: {} }, U = {};
+var ac = { exports: {} }, go = {}, cc = { exports: {} }, O = {};
 /**
  * @license React
  * react.production.min.js
@@ -137,7 +137,7 @@ function cp(e) {
   throw e._result;
 }
 var ge = { current: null }, Dl = { transition: null }, dp = { ReactCurrentDispatcher: ge, ReactCurrentBatchConfig: Dl, ReactCurrentOwner: wu };
-U.Children = { map: sl, forEach: function(e, t, n) {
+O.Children = { map: sl, forEach: function(e, t, n) {
   sl(e, function() {
     t.apply(this, arguments);
   }, n);
@@ -155,14 +155,14 @@ U.Children = { map: sl, forEach: function(e, t, n) {
     throw Error("React.Children.only expected to receive a single React element child.");
   return e;
 } };
-U.Component = Jn;
-U.Fragment = _f;
-U.Profiler = ep;
-U.PureComponent = Su;
-U.StrictMode = $f;
-U.Suspense = lp;
-U.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = dp;
-U.cloneElement = function(e, t, n) {
+O.Component = Jn;
+O.Fragment = _f;
+O.Profiler = ep;
+O.PureComponent = Su;
+O.StrictMode = $f;
+O.Suspense = lp;
+O.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = dp;
+O.cloneElement = function(e, t, n) {
   if (e == null)
     throw Error("React.cloneElement(...): The argument must be a React element, but you passed " + e + ".");
   var r = fc({}, e.props), l = e.key, o = e.ref, i = e._owner;
@@ -183,28 +183,28 @@ U.cloneElement = function(e, t, n) {
   }
   return { $$typeof: Hr, type: e.type, key: l, ref: o, props: r, _owner: i };
 };
-U.createContext = function(e) {
+O.createContext = function(e) {
   return e = { $$typeof: np, _currentValue: e, _currentValue2: e, _threadCount: 0, Provider: null, Consumer: null, _defaultValue: null, _globalName: null }, e.Provider = { $$typeof: tp, _context: e }, e.Consumer = e;
 };
-U.createElement = gc;
-U.createFactory = function(e) {
+O.createElement = gc;
+O.createFactory = function(e) {
   var t = gc.bind(null, e);
   return t.type = e, t;
 };
-U.createRef = function() {
+O.createRef = function() {
   return { current: null };
 };
-U.forwardRef = function(e) {
+O.forwardRef = function(e) {
   return { $$typeof: rp, render: e };
 };
-U.isValidElement = ku;
-U.lazy = function(e) {
+O.isValidElement = ku;
+O.lazy = function(e) {
   return { $$typeof: ip, _payload: { _status: -1, _result: e }, _init: cp };
 };
-U.memo = function(e, t) {
+O.memo = function(e, t) {
   return { $$typeof: op, type: e, compare: t === void 0 ? null : t };
 };
-U.startTransition = function(e) {
+O.startTransition = function(e) {
   var t = Dl.transition;
   Dl.transition = {};
   try {
@@ -213,55 +213,55 @@ U.startTransition = function(e) {
     Dl.transition = t;
   }
 };
-U.unstable_act = function() {
+O.unstable_act = function() {
   throw Error("act(...) is not supported in production builds of React.");
 };
-U.useCallback = function(e, t) {
+O.useCallback = function(e, t) {
   return ge.current.useCallback(e, t);
 };
-U.useContext = function(e) {
+O.useContext = function(e) {
   return ge.current.useContext(e);
 };
-U.useDebugValue = function() {
+O.useDebugValue = function() {
 };
-U.useDeferredValue = function(e) {
+O.useDeferredValue = function(e) {
   return ge.current.useDeferredValue(e);
 };
-U.useEffect = function(e, t) {
+O.useEffect = function(e, t) {
   return ge.current.useEffect(e, t);
 };
-U.useId = function() {
+O.useId = function() {
   return ge.current.useId();
 };
-U.useImperativeHandle = function(e, t, n) {
+O.useImperativeHandle = function(e, t, n) {
   return ge.current.useImperativeHandle(e, t, n);
 };
-U.useInsertionEffect = function(e, t) {
+O.useInsertionEffect = function(e, t) {
   return ge.current.useInsertionEffect(e, t);
 };
-U.useLayoutEffect = function(e, t) {
+O.useLayoutEffect = function(e, t) {
   return ge.current.useLayoutEffect(e, t);
 };
-U.useMemo = function(e, t) {
+O.useMemo = function(e, t) {
   return ge.current.useMemo(e, t);
 };
-U.useReducer = function(e, t, n) {
+O.useReducer = function(e, t, n) {
   return ge.current.useReducer(e, t, n);
 };
-U.useRef = function(e) {
+O.useRef = function(e) {
   return ge.current.useRef(e);
 };
-U.useState = function(e) {
+O.useState = function(e) {
   return ge.current.useState(e);
 };
-U.useSyncExternalStore = function(e, t, n) {
+O.useSyncExternalStore = function(e, t, n) {
   return ge.current.useSyncExternalStore(e, t, n);
 };
-U.useTransition = function() {
+O.useTransition = function() {
   return ge.current.useTransition();
 };
-U.version = "18.2.0";
-cc.exports = U;
+O.version = "18.2.0";
+cc.exports = O;
 var m = cc.exports;
 const L = /* @__PURE__ */ sc(m);
 /**
@@ -288,7 +288,7 @@ go.Fragment = hp;
 go.jsx = Ac;
 go.jsxs = Ac;
 ac.exports = go;
-var O = ac.exports, qi = {}, yc = { exports: {} }, Te = {}, qc = { exports: {} }, Sc = {};
+var U = ac.exports, qi = {}, yc = { exports: {} }, Te = {}, qc = { exports: {} }, Sc = {};
 /**
  * @license React
  * scheduler.production.min.js
@@ -8982,7 +8982,7 @@ function uc(e) {
     id: t,
     attributes: { roleDescription: n }
   });
-  return /* @__PURE__ */ O.jsxs(
+  return /* @__PURE__ */ U.jsxs(
     "button",
     {
       ref: s,
@@ -8995,8 +8995,8 @@ function uc(e) {
       "aria-describedby": n,
       className: "itemButton",
       children: [
-        /* @__PURE__ */ O.jsx("img", { className: "image", ...r, style: { pointerEvents: "none" } }),
-        /* @__PURE__ */ O.jsx("div", { className: "arrows", children: /* @__PURE__ */ O.jsx(
+        /* @__PURE__ */ U.jsx("img", { className: "image", ...r, style: { pointerEvents: "none" } }),
+        /* @__PURE__ */ U.jsx("div", { className: "arrows", children: /* @__PURE__ */ U.jsx(
           "svg",
           {
             xmlns: "http://www.w3.org/2000/svg",
@@ -9004,7 +9004,7 @@ function uc(e) {
             height: "24",
             className: "bi bi-arrows-move",
             viewBox: "0 0 16 16",
-            children: /* @__PURE__ */ O.jsx(
+            children: /* @__PURE__ */ U.jsx(
               "path",
               {
                 fillRule: "evenodd",
@@ -9022,8 +9022,8 @@ function $m({ html: e, id: t, index: n, children: r }) {
     id: t,
     data: { current: n }
   });
-  return /* @__PURE__ */ O.jsxs("div", { ref: o, className: `dropContainer ${l ? "over" : null}`, children: [
-    /* @__PURE__ */ O.jsx("h1", { className: "title", dangerouslySetInnerHTML: { __html: e } }),
+  return /* @__PURE__ */ U.jsxs("div", { ref: o, className: `dropContainer ${l ? "over" : null}`, children: [
+    /* @__PURE__ */ U.jsx("h1", { className: "title", dangerouslySetInnerHTML: { __html: e } }),
     r
   ] });
 }
@@ -9052,7 +9052,7 @@ function eg({ advanceStep: e, config: t }) {
   }
   return m.useEffect(() => {
     o === 2 && setTimeout(e, 1e3);
-  }, [e, o]), /* @__PURE__ */ O.jsx("article", { className: "dndBox", children: /* @__PURE__ */ O.jsxs(
+  }, [e, o]), /* @__PURE__ */ U.jsx("article", { className: "dndBox", children: /* @__PURE__ */ U.jsxs(
     Wm,
     {
       sensors: v,
@@ -9060,31 +9060,31 @@ function eg({ advanceStep: e, config: t }) {
       onDragEnd: q,
       modifiers: [_m],
       children: [
-        /* @__PURE__ */ O.jsx("div", { className: "dropZone", children: r.slice(1).map((d, c) => {
+        /* @__PURE__ */ U.jsx("div", { className: "dropZone", children: r.slice(1).map((d, c) => {
           var p;
-          return /* @__PURE__ */ O.jsx(
+          return /* @__PURE__ */ U.jsx(
             $m,
             {
               index: c,
               ...d,
               children: (p = d.itemIds) == null ? void 0 : p.map((A) => {
                 const S = n[A];
-                return /* @__PURE__ */ O.jsx(uc, { item: S }, A);
+                return /* @__PURE__ */ U.jsx(uc, { item: S }, A);
               })
             },
             c
           );
         }) }),
-        /* @__PURE__ */ O.jsx("div", { className: "itemContainer", children: (N = (y = r[0]) == null ? void 0 : y.itemIds) == null ? void 0 : N.map((d) => {
+        /* @__PURE__ */ U.jsx("div", { className: "itemContainer", children: (N = (y = r[0]) == null ? void 0 : y.itemIds) == null ? void 0 : N.map((d) => {
           const c = n[d];
-          return /* @__PURE__ */ O.jsx(uc, { item: c }, d);
+          return /* @__PURE__ */ U.jsx(uc, { item: c }, d);
         }) })
       ]
     }
   ) });
 }
 function tg({ answer: e, inputSelection: t }) {
-  return /* @__PURE__ */ O.jsx("button", { className: "answer", onClick: () => t(e), dangerouslySetInnerHTML: { __html: e.html } });
+  return /* @__PURE__ */ U.jsx("button", { className: "answer", onClick: () => t(e), dangerouslySetInnerHTML: { __html: e.html } });
 }
 function ng({ advanceStep: e, config: t }) {
   const n = t.options, [r, l] = m.useState(null), [o, i] = m.useState(!1);
@@ -9093,10 +9093,10 @@ function ng({ advanceStep: e, config: t }) {
   }
   return m.useEffect(() => {
     r && setTimeout(e, 1e3);
-  }, [e, r]), /* @__PURE__ */ O.jsxs("article", { className: "container", children: [
-    /* @__PURE__ */ O.jsx("h1", { className: "question", dangerouslySetInnerHTML: { __html: t.html } }),
-    /* @__PURE__ */ O.jsx("div", { className: "questionContainer", children: /* @__PURE__ */ O.jsx("img", { ...t.image }) }),
-    /* @__PURE__ */ O.jsx("div", { className: "answerContainer", children: n.map((s, a) => /* @__PURE__ */ O.jsx(
+  }, [e, r]), /* @__PURE__ */ U.jsxs("article", { className: "container", children: [
+    /* @__PURE__ */ U.jsx("h1", { className: "question", dangerouslySetInnerHTML: { __html: t.html } }),
+    /* @__PURE__ */ U.jsx("div", { className: "questionContainer", children: /* @__PURE__ */ U.jsx("img", { ...t.image }) }),
+    /* @__PURE__ */ U.jsx("div", { className: "answerContainer", children: n.map((s, a) => /* @__PURE__ */ U.jsx(
       tg,
       {
         answer: s,
@@ -9110,9 +9110,9 @@ const rg = ({ advanceStep: e, config: { video: t } }) => {
   const n = m.useRef(), [r, l] = m.useState(!0), o = m.useCallback(() => l(!1), []), i = m.useCallback(() => e(), []);
   return m.useEffect(() => {
     n.current && (n.current.removeEventListener("playing", o), n.current.addEventListener("playing", o), n.current.removeEventListener("ended", i), n.current.addEventListener("ended", i));
-  }, []), /* @__PURE__ */ O.jsxs("article", { style: { display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100vh" }, children: [
-    /* @__PURE__ */ O.jsx("video", { autoPlay: !0, controls: !1, width: "100%", ref: n, children: /* @__PURE__ */ O.jsx("source", { type: "video/mp4", ...t }) }),
-    !!r && /* @__PURE__ */ O.jsx(
+  }, []), /* @__PURE__ */ U.jsxs("article", { style: { display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100vh" }, children: [
+    /* @__PURE__ */ U.jsx("video", { autoPlay: !0, controls: !1, width: "100%", ref: n, children: /* @__PURE__ */ U.jsx("source", { type: "video/mp4", ...t }) }),
+    !!r && /* @__PURE__ */ U.jsx(
       "button",
       {
         className: "video-play",
@@ -9120,7 +9120,7 @@ const rg = ({ advanceStep: e, config: { video: t } }) => {
           var u;
           return (u = n.current) == null ? void 0 : u.play();
         },
-        children: "Play"
+        children: /* @__PURE__ */ U.jsx("svg", { xmlns: "http://www.w3.org/2000/svg", width: "70%", height: "70%", fill: "currentColor", viewBox: "0 0 15 16", children: /* @__PURE__ */ U.jsx("path", { d: "M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" }) })
       }
     )
   ] });
@@ -9133,13 +9133,13 @@ const rg = ({ advanceStep: e, config: { video: t } }) => {
     case "video":
       return rg;
     default:
-      return ({ advanceStep: t }) => /* @__PURE__ */ O.jsxs("div", { children: [
-        /* @__PURE__ */ O.jsxs("p", { children: [
+      return ({ advanceStep: t }) => /* @__PURE__ */ U.jsxs("div", { children: [
+        /* @__PURE__ */ U.jsxs("p", { children: [
           "Missing component for type `",
           e,
           "`"
         ] }),
-        /* @__PURE__ */ O.jsx("button", { onClick: () => t(), children: "Next >" })
+        /* @__PURE__ */ U.jsx("button", { onClick: () => t(), children: "Next >" })
       ] });
   }
 };
@@ -9151,7 +9151,7 @@ function og({ config: e }) {
       return h + a >= t.length ? ((v = (f = window == null ? void 0 : window.parent) == null ? void 0 : f.playNextSlide) != null && v.call(f) || console.log("Play next slide"), h) : h + a;
     });
   }, []), u = lg((s = t == null ? void 0 : t[n]) == null ? void 0 : s.type);
-  return /* @__PURE__ */ O.jsx("main", { children: /* @__PURE__ */ O.jsx(Rv, { mode: "out-in", children: /* @__PURE__ */ O.jsx(
+  return /* @__PURE__ */ U.jsx("main", { children: /* @__PURE__ */ U.jsx(Rv, { mode: "out-in", children: /* @__PURE__ */ U.jsx(
     Cv,
     {
       nodeRef: o,
@@ -9160,7 +9160,7 @@ function og({ config: e }) {
       addEndListener: (a) => {
         o.current.addEventListener("transitionend", a, !1);
       },
-      children: /* @__PURE__ */ O.jsx("div", { ref: o, children: /* @__PURE__ */ O.jsx(u, { config: t == null ? void 0 : t[n], advanceStep: i }) })
+      children: /* @__PURE__ */ U.jsx("div", { ref: o, children: /* @__PURE__ */ U.jsx(u, { config: t == null ? void 0 : t[n], advanceStep: i }) })
     },
     n
   ) }) });
@@ -9168,7 +9168,7 @@ function og({ config: e }) {
 const ig = {
   Init: (e, t) => {
     qi.createRoot(e).render(
-      /* @__PURE__ */ O.jsx(L.StrictMode, { children: /* @__PURE__ */ O.jsx(og, { config: t }) })
+      /* @__PURE__ */ U.jsx(L.StrictMode, { children: /* @__PURE__ */ U.jsx(og, { config: t }) })
     );
   }
 };
