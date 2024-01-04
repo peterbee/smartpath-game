@@ -25,7 +25,7 @@ export default function MultiChoicePage({ advanceStep, config }) {
   }, [advanceStep, selected]);
 
   return (
-    <article className='container'>
+    <article className='container' style={{ backgroundImage: `url(${config.backgroundImage || ''})` }}>
       <h1 className='question' dangerouslySetInnerHTML={{ __html: config.html }} />
       <div className='questionContainer'>
         <img {...config.image} />

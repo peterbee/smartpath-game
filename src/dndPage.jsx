@@ -67,7 +67,7 @@ export default function DndPage({ advanceStep, config }) {
   }, [advanceStep, correct]);
 
   return (
-    <article className='dndBox'>
+    <article className='dndBox' style={{ backgroundImage: `url(${config.backgroundImage || ''})` }}>
       <DndContext
         sensors={sensors}
         onDragStart={handleDragStart}

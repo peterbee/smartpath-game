@@ -21,7 +21,9 @@
           "video": { "src": "./assets/sample-video.mp4" },
         },
         {
-          type: "matching", zones: [
+          type: "matching",
+          backgroundImage: "./assets/background.png",
+          zones: [
             { id: "good", html: "Good" },
             { id: "service", html: "Service" },
           ],
@@ -36,6 +38,7 @@
         },
         {
           type: "multiple-choice",
+          backgroundImage: "./assets/background.png",
           html: "What's the best type of payment?",
           image: { src: "./assets/hot-dog-cart.png", alt: "drawing of hot dog stand" },
           options: [
