@@ -17,7 +17,7 @@ const getComponentForType = (type) => {
   }
 }
 
-export default function Home({ config }) {
+export default function Home({ config, onSequenceFinished }) {
   const { sequence } = config || {};
   const [stepNumber, setStepNumber] = useState(0);
   const refs = useRef(sequence.map(() => createRef()));
@@ -26,7 +26,7 @@ export default function Home({ config }) {
   const advanceStep = useCallback((inc = 1) => {
     setStepNumber(s => {
       if (s + inc >= sequence.length) {
-        window?.parent?.playNextSlide?.() || console.log("Play next slide");
+        onSequenceFinished?.() || console.log("Sequence finished");
         return s;
       } else {
         return s + inc;

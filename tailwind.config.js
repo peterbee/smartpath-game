@@ -12,7 +12,6 @@ module.exports = {
       },
       boxShadow: {
         spec: '0px 0px 5px 0px rgba(51, 122, 183, 0.25)',
-        arrows: '0px 0px 5px 0px #337AB7',
       },
     },
   },

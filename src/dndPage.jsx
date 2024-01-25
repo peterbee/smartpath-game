@@ -24,7 +24,6 @@ export default function DndPage({ advanceStep, config }) {
     { itemIds: Array(tokens.length).fill().map((_, i) => i) },
     ...config.zones.map(zone => ({ ...zone, itemIds: [] })),
   ]);
-  const [correct, setCorrect] = useState(0);
   const [activeId, setActiveId] = useState(null);
 
   const mouseSensor = useSensor(MouseSensor);
@@ -45,8 +44,15 @@ export default function DndPage({ advanceStep, config }) {
 
   function handleDragEnd(event) {
     const { over } = event;
+    // if item is dropped outside of a drop zone
     if (!over) return;
-    if (over.id !== tokens[activeId].answer) return audio.play(false);
+
+    const dropZone = zones.find(z => z.id === over.id);
+    // if the drop zone already has the maximum number of allowed items
+    if (dropZone.maxItems === 0 || (dropZone.itemIds?.length >= (dropZone.maxItems || config.maxItems))) return;
+    // if drop zone is incorrect
+    if (![tokens[activeId].answer].flat().includes(over.id)) return audio.play(false);
+
 
     setZones((zones) => {
       return zones.map((zone) => {
@@ -55,19 +61,19 @@ export default function DndPage({ advanceStep, config }) {
         return { ...zone, itemIds: remainingItems };
       });
     });
-    setCorrect((prev) => prev + 1);
     audio.play(true);
     return setActiveId(null);
   }
 
   useEffect(() => {
-    if (correct === 2) {
+    if (!zones[0]?.itemIds?.length) {
       setTimeout(advanceStep, 1000);
     }
-  }, [advanceStep, correct]);
+  }, [advanceStep, zones]);
 
   return (
     <article className='dndBox' style={{ backgroundImage: `url(${config.backgroundImage || ''})` }}>
+      {!!config.html && <h1 className='question' dangerouslySetInnerHTML={{ __html: config.html }} />}
       <DndContext
         sensors={sensors}
         onDragStart={handleDragStart}
@@ -90,7 +96,7 @@ export default function DndPage({ advanceStep, config }) {
             );
           })}
         </div>
-        <div className='itemContainer'>
+        <div className='footer'>
           {zones[0]?.itemIds?.map((id) => {
             const item = tokens[id];
             return <DropItem key={id} item={item} />;

@@ -1,31 +1,16 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-size: cover;
-  background-position: center;
-}
-
-.question {
-  font-size: 3.75rem;
-  line-height: 1.625;
-  text-align: left;
-  position: relative;
-  right: 0;
-  margin: 1.75rem;
-}
-
 .questionContainer {
   display: flex;
-  gap: 25px;
+  gap: 1.5rem;
   align-items: center;
+}
+
+.questionContainer img {
+  max-height: 30rem;
 }
 
 .answerContainer {
   width: 100%;
-  position: fixed;
-  bottom: 0;
   display: flex;
-  gap: 50px;
+  gap: 3rem;
   justify-content: center;
 }

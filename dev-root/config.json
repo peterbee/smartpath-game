@@ -1,12 +1,6 @@
 {
   "sequence": [
     {
-      "type": "video",
-      "video": {
-        "src": "./assets/sample-video.mp4"
-      }
-    },
-    {
       "type": "matching",
       "backgroundImage": "./assets/background.png",
       "zones": [
@@ -33,6 +27,66 @@
             "alt": "drawing of a chocolate bar"
           },
           "answer": "good"
+        }
+      ]
+    },
+    {
+      "type": "matching",
+      "html": "Shovelling snow isn’t likely to happen until mid November, so Mack thinks he’ll get about five weeks of work. He’d need to buy a shovel for $3 and plans on shovelling one driveway a day and will charge $2 per driveway, which means he’ll make $14 a week.<h2>​Fill in the blanks to find out how much he could make shovelling driveways.</h2>",
+      "maxItems": 1,
+      "zones": [
+        {
+          "id": 1,
+          "html": "(",
+          "maxItems": 0
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5,
+          "html": ")",
+          "maxItems": 0
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        }
+      ],
+      "tokens": [
+        {
+          "html": "5",
+          "answer": [
+            2,
+            4
+          ]
+        },
+        {
+          "html": "$3",
+          "answer": 7
+        },
+        {
+          "html": "$14",
+          "answer": [
+            2,
+            4
+          ]
+        },
+        {
+          "html": "X",
+          "answer": 3
+        },
+        {
+          "html": "—",
+          "answer": 6
         }
       ]
     },

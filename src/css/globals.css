@@ -4,12 +4,58 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+#root,
+main {
+  height: 100%;
+}
+
 main {
   font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:root {
+  --ratio: 1.78;
+}
+
+html {
+  /* fixed container ratio */
+  font-size: min(1vw, calc(1vh * var(--ratio)));
+}
+
+article {
+  height: 100vh;
+  width: 100vw;
+  max-height: calc(100rem / var(--ratio));
+  max-width: 100rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+}
+
+article .footer {
+  height: 10rem;
+  background: #fff9;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
 }
 
 .transition-enter {
