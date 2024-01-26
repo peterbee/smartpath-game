@@ -48,10 +48,11 @@ export default function DndPage({ advanceStep, config }) {
     if (!over) return;
 
     const dropZone = zones.find(z => z.id === over.id);
+    const token = tokens[activeId];
     // if the drop zone already has the maximum number of allowed items
     if (dropZone.maxItems === 0 || (dropZone.itemIds?.length >= (dropZone.maxItems || config.maxItems))) return;
     // if drop zone is incorrect
-    if (![tokens[activeId].answer].flat().includes(over.id)) return audio.play(false);
+    if (![token.answer].flat().includes(over.id)) return audio.play(token.feedback?.incorrect || false);
 
 
     setZones((zones) => {
@@ -61,7 +62,7 @@ export default function DndPage({ advanceStep, config }) {
         return { ...zone, itemIds: remainingItems };
       });
     });
-    audio.play(true);
+    audio.play(token.feedback?.correct || true);
     return setActiveId(null);
   }
 

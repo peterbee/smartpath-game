@@ -1,6 +1,27 @@
 {
   "sequence": [
     {
+      "type": "multiple-choice",
+      "backgroundImage": "./assets/background.png",
+      "html": "What's the best type of payment?",
+      "image": {
+        "src": "./assets/hot-dog-cart.png",
+        "alt": "drawing of hot dog stand"
+      },
+      "options": [
+        {
+          "html": "Cash",
+          "correct": true
+        },
+        {
+          "html": "Card",
+          "feedback": {
+            "src": "./assets/try-again.mp3"
+          }
+        }
+      ]
+    },
+    {
       "type": "matching",
       "backgroundImage": "./assets/background.png",
       "zones": [
@@ -26,7 +47,12 @@
             "src": "./assets/Chocolate_narrow.png",
             "alt": "drawing of a chocolate bar"
           },
-          "answer": "good"
+          "answer": "good",
+          "feedback": {
+            "incorrect": {
+              "src": "./assets/try-again.mp3"
+            }
+          }
         }
       ]
     },
@@ -95,24 +121,6 @@
       "video": {
         "src": "./assets/sample-video.mp4"
       }
-    },
-    {
-      "type": "multiple-choice",
-      "backgroundImage": "./assets/background.png",
-      "html": "What's the best type of payment?",
-      "image": {
-        "src": "./assets/hot-dog-cart.png",
-        "alt": "drawing of hot dog stand"
-      },
-      "options": [
-        {
-          "html": "Cash",
-          "correct": true
-        },
-        {
-          "html": "Card"
-        }
-      ]
     }
   ]
 }

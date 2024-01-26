@@ -15,7 +15,7 @@ export default function MultiChoicePage({ advanceStep, config }) {
   function selectAnswer(answer) {
     setSelected(answer.correct);
     setIsOpen(true);
-    audio.play(answer.correct);
+    audio.play(answer.feedback || answer.correct);
   }
 
   useEffect(() => {
