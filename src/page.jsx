@@ -7,6 +7,7 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import DndPage from './dndPage';
 import MultiChoicePage from './multiChoicePage';
 import VideoPage from './videoPage';
+import Celebration from './celebration';
 
 const getComponentForType = (type) => {
   switch (type) {
@@ -20,19 +21,22 @@ const getComponentForType = (type) => {
 export default function Home({ config, onSequenceFinished }) {
   const { sequence } = config || {};
   const [stepNumber, setStepNumber] = useState(0);
+  const [showCelebration, setShowCelebration] = useState(false);
   const refs = useRef(sequence.map(() => createRef()));
   const nodeRef = refs.current[stepNumber];
 
   const advanceStep = useCallback((inc = 1) => {
-    setStepNumber(s => {
-      if (s + inc >= sequence.length) {
+    if (stepNumber + inc >= sequence.length) {
+      setShowCelebration(true);
+      setTimeout(() => {
         onSequenceFinished?.() || console.log("Sequence finished");
-        return s;
-      } else {
-        return s + inc;
-      }
-    })
-  }, []);
+      }, 5000);
+    } else {
+      setTimeout(() => {
+        setStepNumber(stepNumber + 1);
+      }, 1000);
+    }
+  }, [stepNumber]);
 
   const StepComponent = getComponentForType(sequence?.[stepNumber]?.type);
 
@@ -50,6 +54,7 @@ export default function Home({ config, onSequenceFinished }) {
         >
           <div ref={nodeRef}>
             <StepComponent config={sequence?.[stepNumber]} advanceStep={advanceStep} />
+            {!!showCelebration && <Celebration />}
           </div>
         </CSSTransition>
       </SwitchTransition>

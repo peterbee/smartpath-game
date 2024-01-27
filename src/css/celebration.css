@@ -1,0 +1,50 @@
+.celebration {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.celebration .star {
+  width: 50rem;
+  animation: zoom-in-zoom-out 2s ease-in-out,
+    rotate 2s ease-in-out;
+}
+
+.celebration h1 {
+  position: absolute;
+  animation: zoom-in-zoom-out 2s ease-in-out;
+}
+
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    scale: 0;
+  }
+
+  75% {
+    scale: 1.25;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0;
+  }
+
+  75% {
+    scale: 600deg;
+  }
+
+  100% {
+    rotate: 720deg;
+  }
+}

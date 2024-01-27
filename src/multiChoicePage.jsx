@@ -20,7 +20,7 @@ export default function MultiChoicePage({ advanceStep, config }) {
 
   useEffect(() => {
     if (!!selected) {
-      setTimeout(advanceStep, 1000);
+      advanceStep();
     }
   }, [advanceStep, selected]);
 

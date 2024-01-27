@@ -68,7 +68,7 @@ export default function DndPage({ advanceStep, config }) {
 
   useEffect(() => {
     if (!zones[0]?.itemIds?.length) {
-      setTimeout(advanceStep, 1000);
+      advanceStep();
     }
   }, [advanceStep, zones]);
 
