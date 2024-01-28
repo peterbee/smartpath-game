@@ -1,5 +1,42 @@
 .question {
   padding: 3rem;
+  margin: 0;
+  text-align: center;
+}
+
+.dndLayout {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dndLayout.columns {
+  flex-direction: row;
+}
+
+.dndLayout.columns>* {
+  width: 50%;
+}
+
+.dndLayout.columns .question {
+  text-align: left;
+}
+
+.dndLayout.columns .dropZone {
+  flex-wrap: wrap;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.dndLayout.columns .dropZone .dropContainer {
+  height: 7rem;
+  min-width: 100%;
+}
+
+.dndLayout.columns.x2 .dropZone .dropContainer {
+  min-width: 40%;
 }
 
 .dropZone {

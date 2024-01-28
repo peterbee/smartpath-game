@@ -2,9 +2,17 @@
   border: 0.125rem dotted black;
   background: white;
   flex: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* disallow drop zones growing to fit content */
+  width: 0;
+}
+
+.dropContainer.disabled {
+  font-size: 5rem;
+  justify-content: center;
 }
 
 .over {

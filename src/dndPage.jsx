@@ -74,28 +74,32 @@ export default function DndPage({ advanceStep, config }) {
 
   return (
     <article className='dndBox' style={{ backgroundImage: `url(${config.backgroundImage || ''})` }}>
-      {!!config.html && <h1 className='question' dangerouslySetInnerHTML={{ __html: config.html }} />}
       <DndContext
         sensors={sensors}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
         modifiers={[restrictToWindowEdges]}
       >
-        <div className='dropZone'>
-          {zones.slice(1).map((zone, i) => {
-            return (
-              <DropZone
-                index={i}
-                key={i}
-                {...zone}
-              >
-                {zone.itemIds?.map((id) => {
-                  const item = tokens[id];
-                  return <DropItem key={id} item={item} />;
-                })}
-              </DropZone>
-            );
-          })}
+        <div className={['dndLayout', config.layout].flat().join(" ")}>
+          {!!config.html && <h1 className='question' dangerouslySetInnerHTML={{ __html: config.html }} />}
+          <div className='dropZone'>
+            {zones.slice(1).map((zone, i) => {
+              return zone.maxItems === 0
+                ? <div className="dropContainer disabled">{zone.html}</div>
+                : (
+                  <DropZone
+                    index={i}
+                    key={i}
+                    {...zone}
+                  >
+                    {zone.itemIds?.map((id) => {
+                      const item = tokens[id];
+                      return <DropItem key={id} item={item} />;
+                    })}
+                  </DropZone>
+                );
+            })}
+          </div>
         </div>
         <div className='footer'>
           {zones[0]?.itemIds?.map((id) => {
