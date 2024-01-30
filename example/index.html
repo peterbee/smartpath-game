@@ -17,6 +17,21 @@
     const config = {
       sequence: [
         {
+          type: "matching",
+          html: "Guess where things go!",
+          layout: "columns x2",
+          zones: [
+            { id: 1 },
+            { id: 2 },
+            { id: 3 },
+            { id: 4 },
+          ],
+          tokens: [
+            { html: "First item", answer: 2 },
+            { html: "Second item", answer: 4 },
+          ]
+        },
+        {
           type: "video",
           video: { src: "./assets/sample-video.mp4" },
         },
@@ -55,7 +70,8 @@
             { html: "X", answer: 3 },
             { html: "—", answer: 6 }
           ]
-        }, {
+        },
+        {
           type: "video",
           video: { src: "./assets/sample-video.mp4" },
         },

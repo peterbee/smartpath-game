@@ -1,5 +1,5 @@
 .dropContainer {
-  border: 0.125rem dotted black;
+  border: 0.25rem solid black;
   background: white;
   flex: 1;
   position: relative;
@@ -16,8 +16,8 @@
 }
 
 .over {
-  outline: 0.125rem solid #337ab7;
-  outline-offset: 0.125rem;
+  outline: 0.25rem dashed #337ab7;
+  outline-offset: 0.5rem;
 }
 
 .title {

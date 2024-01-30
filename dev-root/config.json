@@ -13,14 +13,6 @@
         {
           "id": "service",
           "html": "Service"
-        },
-        {
-          "id": "good",
-          "html": "Good"
-        },
-        {
-          "id": "service",
-          "html": "Service"
         }
       ],
       "tokens": [
