@@ -81,7 +81,7 @@ export default function DndPage({ advanceStep, config }) {
         modifiers={[restrictToWindowEdges]}
       >
         <div className={['dndLayout', config.layout].flat().join(" ")}>
-          {!!config.html && <h1 className='question' dangerouslySetInnerHTML={{ __html: config.html }} />}
+          {!!config.html && <div className='question' dangerouslySetInnerHTML={{ __html: config.html }} />}
           <div className='dropZone'>
             {zones.slice(1).map((zone, i) => {
               return zone.maxItems === 0

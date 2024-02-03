@@ -26,11 +26,7 @@ export default function MultiChoicePage({ advanceStep, config }) {
 
   return (
     <article style={{ backgroundImage: `url(${config.backgroundImage || ''})` }}>
-      <h1 className='question' dangerouslySetInnerHTML={{ __html: config.html }} />
-      <div className='questionContainer'>
-        <img {...config.image} />
-        {/* {isOpen && <AnswerModal answer={selected} setIsOpen={setIsOpen} />} */}
-      </div>
+      <div className='question' dangerouslySetInnerHTML={{ __html: config.html }} />
       <div className='footer'>
         {answers.map((answer, index) => (
           <MultiAnswer
