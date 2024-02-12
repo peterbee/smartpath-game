@@ -3,7 +3,7 @@ import './css/multiChoice.css';
 
 import { useEffect, useState } from 'react';
 
-import audio from './audioFeedback';
+import feedback from './mediaFeedback';
 import MultiAnswer from './components/MultiAnswer';
 // import AnswerModal from './components/AnswerModal';
 
@@ -15,7 +15,7 @@ export default function MultiChoicePage({ advanceStep, config }) {
   function selectAnswer(answer) {
     setSelected(answer.correct);
     setIsOpen(true);
-    audio.play(answer.feedback || answer.correct);
+    feedback.play(answer.feedback || answer.correct);
   }
 
   useEffect(() => {

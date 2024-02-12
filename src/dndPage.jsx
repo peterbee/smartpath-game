@@ -13,7 +13,7 @@ import {
 } from '@dnd-kit/core';
 import { restrictToWindowEdges } from '@dnd-kit/modifiers';
 
-import audio from './audioFeedback';
+import feedback from './mediaFeedback';
 import DropItem from './components/dropItem';
 import DropZone from './components/dropZone';
 
@@ -52,7 +52,7 @@ export default function DndPage({ advanceStep, config }) {
     // if the drop zone already has the maximum number of allowed items
     if (dropZone.maxItems === 0 || (dropZone.itemIds?.length >= (dropZone.maxItems || config.maxItems))) return;
     // if drop zone is incorrect
-    if (![token.answer].flat().includes(over.id)) return audio.play(token.feedback?.incorrect || false);
+    if (![token.answer].flat().includes(over.id)) return feedback.play(token.feedback?.incorrect || false);
 
 
     setZones((zones) => {
@@ -62,7 +62,7 @@ export default function DndPage({ advanceStep, config }) {
         return { ...zone, itemIds: remainingItems };
       });
     });
-    audio.play(token.feedback?.correct || true);
+    feedback.play(token.feedback?.correct || true);
     return setActiveId(null);
   }
 

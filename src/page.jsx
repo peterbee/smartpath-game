@@ -8,6 +8,7 @@ import DndPage from './dndPage';
 import MultiChoicePage from './multiChoicePage';
 import VideoPage from './videoPage';
 import Celebration from './celebration';
+import feedback from './mediaFeedback';
 
 const getComponentForType = (type) => {
   switch (type) {
@@ -25,7 +26,9 @@ export default function Home({ config, onSequenceFinished }) {
   const refs = useRef(sequence.map(() => createRef()));
   const nodeRef = refs.current[stepNumber];
 
-  const advanceStep = useCallback((inc = 1) => {
+  const advanceStep = useCallback(async (inc = 1) => {
+    await feedback.isFinished();
+
     if (stepNumber + inc >= sequence.length) {
       setShowCelebration(true);
       setTimeout(() => {
