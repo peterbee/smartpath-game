@@ -19,7 +19,7 @@ export default ({ advanceStep, config: { video } }) => {
   }, []);
 
   return (
-    <article>
+    <article style={{ justifyContent: "center" }}>
       {!!showPlayButton && <button className="video-play"
         onClick={() => videoRef.current?.play()}>
         <svg xmlns="http://www.w3.org/2000/svg" width="70%" height="70%" fill="currentColor" viewBox="0 0 15 16">
