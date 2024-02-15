@@ -36,11 +36,6 @@ img {
   max-height: 40rem;
 }
 
-video {
-  max-height: 100vh;
-  max-width: 100vw;
-}
-
 article {
   height: 100vh;
   width: 100vw;
