@@ -8,7 +8,7 @@ const sounds = {
   false: Buzzer,
 }
 
-const playVideo = (source, parentNode, onFinished) => {
+const playVideo = (source, onFinished, parentNode) => {
   let videoHasStartedPlaying = false;
 
   const videoContainer = document.createElement("div");
@@ -42,12 +42,17 @@ const playVideo = (source, parentNode, onFinished) => {
   parentNode.appendChild(videoContainer);
 }
 
+const playAudio = (source, onFinished, _parentNode) => {
+  const audio = new Audio(source);
+  audio.onended = onFinished;
+  audio.play();
+}
+
 export default {
   isFinished: async () => await playing,
-  play: (media) =>
-    media?.type === "video"
-      ? playing = new Promise(r => playVideo(media.src, document.getElementById("root"), r))
-      : media?.src
-        ? new Audio(media?.src).play()
-        : new Audio(sounds[media || false]).play(),
+  play: (media) => {
+    const playFn = media?.type === "video" ? playVideo : playAudio;
+    const source = media?.src || sounds[media || false];
+    playing = new Promise(r => playFn(source, r, document.getElementById("root")));
+  }
 };

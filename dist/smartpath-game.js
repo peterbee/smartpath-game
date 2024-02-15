@@ -8992,11 +8992,17 @@ const tg = {
     } catch {
     }
   }, o.onended = () => {
-    t.removeChild(l), n();
-  }, l.appendChild(o), t.appendChild(l);
+    n.removeChild(l), t();
+  }, l.appendChild(o), n.appendChild(l);
+}, rg = (e, t, n) => {
+  const r = new Audio(e);
+  r.onended = t, r.play();
 }, No = {
   isFinished: async () => await sc,
-  play: (e) => (e == null ? void 0 : e.type) === "video" ? sc = new Promise((t) => ng(e.src, document.getElementById("root"), t)) : e != null && e.src ? new Audio(e == null ? void 0 : e.src).play() : new Audio(tg[e || !1]).play()
+  play: (e) => {
+    const t = (e == null ? void 0 : e.type) === "video" ? ng : rg, n = (e == null ? void 0 : e.src) || tg[e || !1];
+    sc = new Promise((r) => t(n, r, document.getElementById("root")));
+  }
 };
 function ac(e) {
   const { id: t, alt: n, image: r, html: l } = e.item, { active: o, attributes: i, isDragging: u, listeners: s, setNodeRef: a, transform: v } = Jm({
@@ -9019,7 +9025,7 @@ function ac(e) {
     }
   );
 }
-function rg({ html: e, id: t, index: n, children: r }) {
+function lg({ html: e, id: t, index: n, children: r }) {
   const { isOver: l, setNodeRef: o } = Ym({
     id: t,
     data: { current: n }
@@ -9029,7 +9035,7 @@ function rg({ html: e, id: t, index: n, children: r }) {
     r
   ] });
 }
-function lg({ advanceStep: e, config: t }) {
+function og({ advanceStep: e, config: t }) {
   var y, w;
   const n = t.tokens.map((A, V) => ({ id: V + "", ...A })), [r, l] = q.useState([
     { itemIds: Array(n.length).fill().map((A, V) => V) },
@@ -9072,7 +9078,7 @@ function lg({ advanceStep: e, config: t }) {
           /* @__PURE__ */ B.jsx("div", { className: "dropZone", children: r.slice(1).map((A, V) => {
             var f;
             return A.maxItems === 0 ? /* @__PURE__ */ B.jsx("div", { className: "dropContainer disabled", children: A.html }) : /* @__PURE__ */ B.jsx(
-              rg,
+              lg,
               {
                 index: V,
                 ...A,
@@ -9093,10 +9099,10 @@ function lg({ advanceStep: e, config: t }) {
     }
   ) });
 }
-function og({ answer: e, inputSelection: t }) {
+function ig({ answer: e, inputSelection: t }) {
   return /* @__PURE__ */ B.jsx("button", { className: "answer", onClick: () => t(e), dangerouslySetInnerHTML: { __html: e.html } });
 }
-function ig({ advanceStep: e, config: t }) {
+function ug({ advanceStep: e, config: t }) {
   const n = t.options, [r, l] = q.useState(null), [o, i] = q.useState(!1);
   function u(s) {
     l(s.correct), i(!0), No.play(s.feedback || s.correct);
@@ -9106,7 +9112,7 @@ function ig({ advanceStep: e, config: t }) {
   }, [e, r]), /* @__PURE__ */ B.jsxs("article", { style: { backgroundImage: `url(${t.backgroundImage || ""})` }, children: [
     /* @__PURE__ */ B.jsx("div", { className: "question", dangerouslySetInnerHTML: { __html: t.html } }),
     /* @__PURE__ */ B.jsx("div", { className: "footer", children: n.map((s, a) => /* @__PURE__ */ B.jsx(
-      og,
+      ig,
       {
         answer: s,
         inputSelection: u
@@ -9115,7 +9121,7 @@ function ig({ advanceStep: e, config: t }) {
     )) })
   ] });
 }
-const ug = ({ onFinished: e, ...t }) => {
+const sg = ({ onFinished: e, ...t }) => {
   const n = q.useRef(), [r, l] = q.useState(), o = q.useCallback(() => l((u) => u !== !1), []), i = q.useCallback(() => l(!1), []);
   return /* @__PURE__ */ B.jsxs("div", { id: "video-container", className: "video-container", children: [
     /* @__PURE__ */ B.jsx(
@@ -9136,7 +9142,7 @@ const ug = ({ onFinished: e, ...t }) => {
       return (u = n.current) == null ? void 0 : u.play();
     }, children: /* @__PURE__ */ B.jsx("svg", { xmlns: "http://www.w3.org/2000/svg", width: "70%", height: "70%", fill: "currentColor", viewBox: "0 0 15 16", children: /* @__PURE__ */ B.jsx("path", { d: "M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" }) }) }) })
   ] });
-}, sg = ({ advanceStep: e, config: { video: t } }) => /* @__PURE__ */ B.jsx(ug, { onFinished: e, ...t });
+}, ag = ({ advanceStep: e, config: { video: t } }) => /* @__PURE__ */ B.jsx(sg, { onFinished: e, ...t });
 var Ps = {};
 (function e(t, n, r, l) {
   var o = !!(t.Worker && t.Blob && t.Promise && t.OffscreenCanvas && t.OffscreenCanvasRenderingContext2D && t.HTMLCanvasElement && t.HTMLCanvasElement.prototype.transferControlToOffscreen && t.URL && t.URL.createObjectURL), i = typeof Path2D == "function" && typeof DOMMatrix == "function", u = function() {
@@ -9543,7 +9549,7 @@ var Ps = {};
 }(), Ps, !1);
 const cc = Ps.exports;
 Ps.exports.create;
-const ag = () => /* @__PURE__ */ B.jsx(
+const cg = () => /* @__PURE__ */ B.jsx(
   "svg",
   {
     version: "1.0",
@@ -9558,19 +9564,19 @@ const ag = () => /* @__PURE__ */ B.jsx(
 		c1.6-6.5-0.5-12.9-5.6-17.2l-65.9-55.7c-10.9-9.2-14.9-23.3-10.5-36.8c4.4-13.5,15.9-22.6,30.1-23.6l86-6.4
 		c6.7-0.5,12.1-4.4,14.6-10.6l32.6-79.8c5.4-13.2,17.5-21.3,31.8-21.3C314.4,35.3,326.5,43.5,331.9,56.7L331.9,56.7z` }) })
   }
-), cg = () => (q.useEffect(() => {
+), dg = () => (q.useEffect(() => {
   cc({ gravity: 0.25, origin: { x: 0, y: 0.75 }, angle: 60 }), cc({ gravity: 0.25, origin: { x: 1, y: 0.75 }, angle: 120 });
 }, []), /* @__PURE__ */ B.jsxs("div", { className: "celebration", children: [
-  /* @__PURE__ */ B.jsx(ag, {}),
+  /* @__PURE__ */ B.jsx(cg, {}),
   /* @__PURE__ */ B.jsx("h1", { children: "Great Job!" })
-] })), dg = (e) => {
+] })), fg = (e) => {
   switch (e) {
     case "matching":
-      return lg;
+      return og;
     case "multiple-choice":
-      return ig;
+      return ug;
     case "video":
-      return sg;
+      return ag;
     default:
       return ({ advanceStep: t }) => /* @__PURE__ */ B.jsxs("div", { children: [
         /* @__PURE__ */ B.jsxs("p", { children: [
@@ -9582,7 +9588,7 @@ const ag = () => /* @__PURE__ */ B.jsx(
       ] });
   }
 };
-function fg({ config: e }) {
+function pg({ config: e }) {
   var v;
   const { sequence: t } = e || {}, [n, r] = q.useState(0), [l, o] = q.useState(!1), u = q.useRef(t.map(() => q.createRef())).current[n], s = q.useCallback(async (p = 1) => {
     await No.isFinished(), n + p >= t.length ? (o(!0), setTimeout(() => {
@@ -9590,7 +9596,7 @@ function fg({ config: e }) {
     }, 6e3)) : setTimeout(() => {
       r(n + 1);
     }, 1e3);
-  }, [n]), a = dg((v = t == null ? void 0 : t[n]) == null ? void 0 : v.type);
+  }, [n]), a = fg((v = t == null ? void 0 : t[n]) == null ? void 0 : v.type);
   return /* @__PURE__ */ B.jsx("main", { children: /* @__PURE__ */ B.jsx(Dv, { mode: "out-in", children: /* @__PURE__ */ B.jsx(
     Cv,
     {
@@ -9602,19 +9608,19 @@ function fg({ config: e }) {
       },
       children: /* @__PURE__ */ B.jsxs("div", { ref: u, children: [
         /* @__PURE__ */ B.jsx(a, { config: t == null ? void 0 : t[n], advanceStep: s }),
-        !!l && /* @__PURE__ */ B.jsx(cg, {})
+        !!l && /* @__PURE__ */ B.jsx(dg, {})
       ] })
     },
     n
   ) }) });
 }
-const pg = {
+const hg = {
   Init: (e, t) => {
     Ti.createRoot(e).render(
-      /* @__PURE__ */ B.jsx(J.StrictMode, { children: /* @__PURE__ */ B.jsx(fg, { config: t }) })
+      /* @__PURE__ */ B.jsx(J.StrictMode, { children: /* @__PURE__ */ B.jsx(pg, { config: t }) })
     );
   }
 };
 export {
-  pg as default
+  hg as default
 };
