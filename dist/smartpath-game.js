@@ -9582,36 +9582,36 @@ const ag = () => /* @__PURE__ */ B.jsx(
       ] });
   }
 };
-function fg({ config: e, onSequenceFinished: t }) {
-  var p;
-  const { sequence: n } = e || {}, [r, l] = q.useState(0), [o, i] = q.useState(!1), s = q.useRef(n.map(() => q.createRef())).current[r], a = q.useCallback(async (g = 1) => {
-    await No.isFinished(), r + g >= n.length ? (i(!0), setTimeout(() => {
-      t != null && t() || console.log("Sequence finished");
-    }, 5e3)) : setTimeout(() => {
-      l(r + 1);
+function fg({ config: e }) {
+  var v;
+  const { sequence: t } = e || {}, [n, r] = q.useState(0), [l, o] = q.useState(!1), u = q.useRef(t.map(() => q.createRef())).current[n], s = q.useCallback(async (p = 1) => {
+    await No.isFinished(), n + p >= t.length ? (o(!0), setTimeout(() => {
+      window.parent.postMessage({ event: "nextSlide" }, "*");
+    }, 6e3)) : setTimeout(() => {
+      r(n + 1);
     }, 1e3);
-  }, [r]), v = dg((p = n == null ? void 0 : n[r]) == null ? void 0 : p.type);
+  }, [n]), a = dg((v = t == null ? void 0 : t[n]) == null ? void 0 : v.type);
   return /* @__PURE__ */ B.jsx("main", { children: /* @__PURE__ */ B.jsx(Dv, { mode: "out-in", children: /* @__PURE__ */ B.jsx(
     Cv,
     {
-      nodeRef: s,
+      nodeRef: u,
       timeout: 500,
       classNames: "transition",
-      addEndListener: (g) => {
-        s.current.addEventListener("transitionend", g, !1);
+      addEndListener: (p) => {
+        u.current.addEventListener("transitionend", p, !1);
       },
-      children: /* @__PURE__ */ B.jsxs("div", { ref: s, children: [
-        /* @__PURE__ */ B.jsx(v, { config: n == null ? void 0 : n[r], advanceStep: a }),
-        !!o && /* @__PURE__ */ B.jsx(cg, {})
+      children: /* @__PURE__ */ B.jsxs("div", { ref: u, children: [
+        /* @__PURE__ */ B.jsx(a, { config: t == null ? void 0 : t[n], advanceStep: s }),
+        !!l && /* @__PURE__ */ B.jsx(cg, {})
       ] })
     },
-    r
+    n
   ) }) });
 }
 const pg = {
-  Init: (e, t, n) => {
+  Init: (e, t) => {
     Ti.createRoot(e).render(
-      /* @__PURE__ */ B.jsx(J.StrictMode, { children: /* @__PURE__ */ B.jsx(fg, { config: t, onSequenceFinished: n }) })
+      /* @__PURE__ */ B.jsx(J.StrictMode, { children: /* @__PURE__ */ B.jsx(fg, { config: t }) })
     );
   }
 };

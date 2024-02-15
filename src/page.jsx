@@ -19,7 +19,7 @@ const getComponentForType = (type) => {
   }
 }
 
-export default function Home({ config, onSequenceFinished }) {
+export default function Home({ config }) {
   const { sequence } = config || {};
   const [stepNumber, setStepNumber] = useState(0);
   const [showCelebration, setShowCelebration] = useState(false);
@@ -32,8 +32,8 @@ export default function Home({ config, onSequenceFinished }) {
     if (stepNumber + inc >= sequence.length) {
       setShowCelebration(true);
       setTimeout(() => {
-        onSequenceFinished?.() || console.log("Sequence finished");
-      }, 5000);
+        window.parent.postMessage({ event: "nextSlide" }, "*");
+      }, 6000);
     } else {
       setTimeout(() => {
         setStepNumber(stepNumber + 1);

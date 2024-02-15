@@ -5,11 +5,11 @@ import ReactDOM from 'react-dom/client';
 import Game from './page';
 
 export default {
-  Init: (rootElement, config, gameFinishedFunction) => {
+  Init: (rootElement, config) => {
     const root = ReactDOM.createRoot(rootElement);
     root.render(
       <React.StrictMode>
-        <Game config={config} onSequenceFinished={gameFinishedFunction} />
+        <Game config={config} />
       </React.StrictMode>
     );
   }
