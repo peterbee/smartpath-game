@@ -1,7 +1,7 @@
 'use client';
 import './css/page.css';
 
-import { createRef, useCallback, useRef, useState } from 'react';
+import { createRef, useCallback, useEffect, useRef, useState } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 import DndPage from './dndPage';
@@ -36,9 +36,14 @@ export default function Home({ config }) {
       }, 6000);
     } else {
       setTimeout(() => {
-        setStepNumber(stepNumber + 1);
+        setStepNumber(stepNumber + inc);
       }, 1000);
     }
+  }, [stepNumber]);
+
+  useEffect(() => {
+    const media = sequence?.[stepNumber]?.media;
+    if (media) feedback.play(media);
   }, [stepNumber]);
 
   const StepComponent = getComponentForType(sequence?.[stepNumber]?.type);
