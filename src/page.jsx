@@ -26,17 +26,17 @@ export default function Home({ config }) {
   const refs = useRef(sequence.map(() => createRef()));
   const nodeRef = refs.current[stepNumber];
 
-  const advanceStep = useCallback(async (inc = 1) => {
+  const advanceStep = useCallback(async () => {
     await feedback.isFinished();
 
-    if (stepNumber + inc >= sequence.length) {
+    if (stepNumber + 1 >= sequence.length) {
       setShowCelebration(true);
       setTimeout(() => {
         window.parent.postMessage({ event: "nextSlide" }, "*");
       }, 6000);
     } else {
       setTimeout(() => {
-        setStepNumber(stepNumber + inc);
+        setStepNumber(stepNumber + 1);
       }, 1000);
     }
   }, [stepNumber]);
