@@ -27,7 +27,7 @@ export default function Home({ config }) {
   const nodeRef = refs.current[stepNumber];
 
   const advanceStep = useCallback(async () => {
-    await feedback.isFinished();
+    await feedback.onFinished();
 
     if (stepNumber + 1 >= sequence.length) {
       setShowCelebration(true);

@@ -8,6 +8,18 @@ const sounds = {
   false: Buzzer,
 }
 
+const createPlayButton = () => {
+  const playButton = document.createElement("button");
+  playButton.className = "video-play";
+  playButton.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="70%" height="70%" fill="currentColor" viewBox="0 0 15 16">
+      <path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" />
+    </svg>
+  `;
+
+  return playButton;
+}
+
 const playVideo = (source, onFinished, parentNode) => {
   let videoHasStartedPlaying = false;
 
@@ -19,20 +31,14 @@ const playVideo = (source, onFinished, parentNode) => {
   videoNode.src = source;
   videoNode.autoplay = videoNode.controls = true;
 
-  const playButton = document.createElement("button");
-  playButton.className = "video-play";
+  const playButton = createPlayButton();
   playButton.onclick = () => videoNode.play();
-  playButton.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="70%" height="70%" fill="currentColor" viewBox="0 0 15 16">
-      <path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" />
-    </svg>
-  `;
 
   videoNode.oncanplaythrough = () => !videoHasStartedPlaying && videoContainer.appendChild(playButton);
   videoNode.onplaying = () => {
     videoHasStartedPlaying = true;
     try { videoContainer.removeChild(playButton) } catch (e) { };
-  }
+  };
   videoNode.onended = () => {
     parentNode.removeChild(videoContainer);
     onFinished();
@@ -42,14 +48,25 @@ const playVideo = (source, onFinished, parentNode) => {
   parentNode.appendChild(videoContainer);
 }
 
-const playAudio = (source, onFinished, _parentNode) => {
+let playButtonOnPage = null;
+const playAudio = (source, onFinished, parentNode) => {
   const audio = new Audio(source);
   audio.onended = onFinished;
-  audio.play();
+  audio.play().catch(e => {
+    if (e.name === "NotAllowedError") {
+      const playButton = createPlayButton();
+      playButton.onclick = () => audio.play();
+      audio.onplaying = () => {
+        try { parentNode.removeChild(playButton) } catch (e) { console.log("e", e) };
+      };
+      if (playButtonOnPage) parentNode.removeChild(playButtonOnPage);
+      parentNode.appendChild(playButtonOnPage = playButton);
+    }
+  });
 }
 
 export default {
-  isFinished: async () => await playing,
+  onFinished: async (fn) => { await playing; fn?.() },
   play: (media) => {
     const playFn = media?.type === "video" ? playVideo : playAudio;
     const source = media?.src || sounds[media || false];
