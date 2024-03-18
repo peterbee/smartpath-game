@@ -37,6 +37,7 @@
 
 .dndLayout.columns.x2 .dropZone .dropContainer {
   min-width: 40%;
+  justify-content: center;
 }
 
 .dropZone {

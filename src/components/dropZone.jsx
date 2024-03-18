@@ -10,7 +10,7 @@ export default function DropZone({ html, id, index, children }) {
 
   return (
     <div ref={setNodeRef} className={`dropContainer ${isOver ? `over` : ''}`}>
-      <h1 className='title' dangerouslySetInnerHTML={{ __html: html }} />
+      {!!html && <h1 className='title' dangerouslySetInnerHTML={{ __html: html }} />}
       {children}
     </div>
   );

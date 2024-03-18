@@ -13,6 +13,7 @@
 .dropContainer.disabled {
   font-size: 5rem;
   justify-content: center;
+  border: none;
 }
 
 .over {
