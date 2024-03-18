@@ -21,7 +21,7 @@ export default function DndPage({ advanceStep, config }) {
   const tokens = config.tokens.map((t, i) => ({ id: i + "", ...t }));
 
   const [zones, setZones] = useState([
-    { itemIds: Array(tokens.length).fill().map((_, i) => i) },
+    { itemIds: tokens.map(({ id }) => id) },
     ...config.zones.map(zone => ({ ...zone, itemIds: [] })),
   ]);
   const [activeId, setActiveId] = useState(null);
@@ -39,7 +39,7 @@ export default function DndPage({ advanceStep, config }) {
 
   function handleDragStart(event) {
     const { active } = event;
-    setActiveId(active.id);
+    setActiveId(active.id.split("-")[1]);
   }
 
   function handleDragEnd(event) {
@@ -56,8 +56,10 @@ export default function DndPage({ advanceStep, config }) {
 
 
     setZones((zones) => {
-      return zones.map((zone) => {
-        const remainingItems = zone.itemIds.filter((id) => id != activeId);
+      return zones.map((zone, zoneIndex) => {
+        const remainingItems = (!!config.infiniteTokens && !zoneIndex)
+          ? zone.itemIds.map((id) => id.split(".")[0] == activeId ? activeId + "." + Date.now() : id)
+          : zone.itemIds.filter((id) => id != activeId);
         if (zone.id === over.id) remainingItems.push(activeId);
         return { ...zone, itemIds: remainingItems };
       });
@@ -67,7 +69,10 @@ export default function DndPage({ advanceStep, config }) {
   }
 
   useEffect(() => {
-    if (!zones[0]?.itemIds?.length) {
+    if (config.infiniteTokens) {
+      if (zones?.slice(1).every(z => (z.itemIds?.length || 0) === (z.maxItems ?? 1)))
+        advanceStep();
+    } else if (!zones[0]?.itemIds?.length) {
       advanceStep();
     }
   }, [advanceStep, zones]);
@@ -94,7 +99,7 @@ export default function DndPage({ advanceStep, config }) {
                   >
                     {zone.itemIds?.map((id) => {
                       const item = tokens[id];
-                      return <DropItem key={id} item={item} />;
+                      return <DropItem key={id} id={i + "-" + id} item={item} />;
                     })}
                   </DropZone>
                 );
@@ -103,8 +108,9 @@ export default function DndPage({ advanceStep, config }) {
         </div>
         <div className='footer'>
           {zones[0]?.itemIds?.map((id) => {
-            const item = tokens[id];
-            return <DropItem key={id} item={item} />;
+            const item = tokens[id.split(".")[0]];
+            console.log("id", id);
+            return <DropItem key={id} id={"footer-" + item.id} item={item} />;
           })}
           {/* {correct === 2 && <p className='reply correct'>Correct!</p>} */}
         </div>

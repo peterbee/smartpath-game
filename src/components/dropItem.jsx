@@ -2,8 +2,8 @@ import '../css/dndItem.css';
 
 import { useDraggable } from '@dnd-kit/core';
 
-export default function DropItem(props) {
-  const { id, alt, image, html } = props.item;
+export default function DropItem({ id, item }) {
+  const { alt, image, html } = item;
   const { active, attributes, isDragging, listeners, setNodeRef, transform } =
     useDraggable({
       id: id,
