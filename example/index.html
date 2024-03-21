@@ -17,19 +17,12 @@
     const config = {
       sequence: [
         {
-          type: "matching",
-          html: "Guess where things go!",
-          layout: "columns x2",
-          zones: [
-            { id: 1 },
-            { id: 2 },
-            { id: 3 },
-            { id: 4 },
-          ],
-          tokens: [
-            { html: "First item", answer: 2 },
-            { html: "Second item", answer: 4 },
-          ]
+          type: "calculator",
+          backgroundImage: "./assets/background.png",
+          html: "<h1>Calculate a total of 20</h1>",
+          image: "https://smartpathv2-staging.s3.us-east-2.amazonaws.com/interactives/1663089818/images/Shopping_List2.png",
+          answer: 20,
+          feedback: { incorrect: { src: "./assets/try-again.mp3" } }
         },
         {
           type: "video",

@@ -5,6 +5,7 @@ import { createRef, useCallback, useEffect, useRef, useState } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 import DndPage from './dndPage';
+import CalculatorPage from './calculatorPage';
 import MultiChoicePage from './multiChoicePage';
 import VideoPage from './videoPage';
 import Celebration from './celebration';
@@ -15,6 +16,7 @@ const getComponentForType = (type) => {
     case "matching": return DndPage;
     case "multiple-choice": return MultiChoicePage;
     case "video": return VideoPage;
+    case "calculator": return CalculatorPage;
     default: return ({ advanceStep }) => <div><p>Missing component for type `{type}`</p><button onClick={() => advanceStep()}>Next &gt;</button></div>;
   }
 }
