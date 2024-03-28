@@ -1,7 +1,102 @@
 {
   "sequence": [
     {
+      "type": "cupcake",
+      "backgroundImage": "./assets/background.png",
+      "html": "<h1>Select toppings for the cupcakes</h1>",
+      "budget": 4,
+      "currency": {
+        "image": {
+          "src": "./assets/Joel_narrow.png",
+          "alt": "drawing of a boy doing a cartwheel"
+        }
+      },
+      "tokens": [
+        {
+          "name": "First item",
+          "price": 1,
+          "image": {
+            "src": "./assets/Joel_narrow.png",
+            "alt": "drawing of a boy doing a cartwheel"
+          }
+        },
+        {
+          "name": "Second item",
+          "price": 2,
+          "image": {
+            "src": "./assets/Joel_narrow.png",
+            "alt": "drawing of a boy doing a cartwheel"
+          }
+        },
+        {
+          "name": "Third item",
+          "price": 2,
+          "image": {
+            "src": "./assets/Joel_narrow.png",
+            "alt": "drawing of a boy doing a cartwheel"
+          }
+        },
+        {
+          "name": "First item",
+          "price": 1,
+          "image": {
+            "src": "./assets/Joel_narrow.png",
+            "alt": "drawing of a boy doing a cartwheel"
+          }
+        }
+      ]
+    },
+    {
+      "type": "calculator",
+      "backgroundImage": "./assets/background.png",
+      "html": "<h1>Calculate a total of 20</h1>",
+      "image": "https://smartpathv2-staging.s3.us-east-2.amazonaws.com/interactives/1663089818/images/Shopping_List2.png",
+      "answer": 20,
+      "feedback": {
+        "incorrect": {
+          "src": "./assets/try-again.mp3"
+        }
+      }
+    },
+    {
       "type": "matching",
+      "layout": "columns x2",
+      "infiniteTokens": true,
+      "zones": [
+        {
+          "html": "3c=",
+          "maxItems": 0
+        },
+        {
+          "id": "3c"
+        },
+        {
+          "html": "5d=",
+          "maxItems": 0
+        },
+        {
+          "id": "5d"
+        }
+      ],
+      "tokens": [
+        {
+          "html": "First item",
+          "answer": "5d"
+        },
+        {
+          "html": "Distraction"
+        },
+        {
+          "html": "Second item",
+          "answer": "3c"
+        }
+      ]
+    },
+    {
+      "type": "matching",
+      "media": {
+        "src": "./assets/try-again.mp3"
+      },
       "html": "Which thing goes into which place?",
       "backgroundImage": "./assets/background.png",
       "layout": "columns x1",
@@ -21,7 +116,13 @@
             "src": "./assets/Joel_narrow.png",
             "alt": "drawing of a boy doing a cartwheel"
           },
-          "answer": "service"
+          "answer": "service",
+          "feedback": {
+            "correct": {
+              "type": "video",
+              "src": "./assets/sample-video.mp4"
+            }
+          }
         },
         {
           "image": {
@@ -36,6 +137,12 @@
           }
         }
       ]
+    },
+    {
+      "type": "video",
+      "video": {
+        "src": "./assets/sample-video.mp4"
+      }
     },
     {
       "type": "matching",
@@ -117,12 +224,6 @@
           }
         }
       ]
-    },
-    {
-      "type": "video",
-      "video": {
-        "src": "./assets/sample-video.mp4"
-      }
     }
   ]
 }
