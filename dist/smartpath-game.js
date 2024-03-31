@@ -9074,10 +9074,10 @@ function sg({ advanceStep: e, config: t }) {
     if (!V)
       return;
     const p = r.find((M) => M.id === V.id), c = n[o];
-    if (!(p.maxItems === 0 || ((m = p.itemIds) == null ? void 0 : m.length) >= (p.maxItems || t.maxItems)))
+    if (!(p.maxItems === 0 || !t.infiniteTokens && ((m = p.itemIds) == null ? void 0 : m.length) >= (p.maxItems || t.maxItems)))
       return [c.answer].flat().includes(V.id) ? (l((M) => M.map((k, C) => {
-        const F = t.infiniteTokens && !C ? k.itemIds.map((I) => I.split(".")[0] == o ? o + "." + Date.now() : I) : k.itemIds.filter((I) => I != o);
-        return k.id === V.id && F.push(o), { ...k, itemIds: F };
+        let F = t.infiniteTokens ? C ? k.itemIds : k.itemIds.map((I) => I.split(".")[0] == o ? o + "." + Date.now() : I) : k.itemIds.filter((I) => I != o);
+        return k.id === V.id && (F = [...F, o], t.infiniteTokens && (F = F.slice(-1 * (p.maxItems ?? t.maxItems)))), { ...k, itemIds: F };
       })), Lt.play(((E = c.feedback) == null ? void 0 : E.correct) || !0), i(null)) : Lt.play(((S = c.feedback) == null ? void 0 : S.incorrect) || !1);
   }
   return y.useEffect(() => {
@@ -9114,7 +9114,7 @@ function sg({ advanceStep: e, config: t }) {
         ] }),
         /* @__PURE__ */ R.jsx("div", { className: "footer", children: (w = (q = r[0]) == null ? void 0 : q.itemIds) == null ? void 0 : w.map((A) => {
           const V = n[A.split(".")[0]];
-          return console.log("id", A), /* @__PURE__ */ R.jsx(cc, { id: "footer-" + V.id, item: V }, A);
+          return /* @__PURE__ */ R.jsx(cc, { id: "footer-" + V.id, item: V }, A);
         }) })
       ]
     }

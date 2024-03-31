@@ -50,17 +50,24 @@ export default function DndPage({ advanceStep, config }) {
     const dropZone = zones.find(z => z.id === over.id);
     const token = tokens[activeId];
     // if the drop zone already has the maximum number of allowed items
-    if (dropZone.maxItems === 0 || (dropZone.itemIds?.length >= (dropZone.maxItems || config.maxItems))) return;
+    if (dropZone.maxItems === 0
+      || (!config.infiniteTokens && dropZone.itemIds?.length >= (dropZone.maxItems || config.maxItems)))
+      return;
     // if drop zone is incorrect
     if (![token.answer].flat().includes(over.id)) return feedback.play(token.feedback?.incorrect || false);
 
 
     setZones((zones) => {
       return zones.map((zone, zoneIndex) => {
-        const remainingItems = (!!config.infiniteTokens && !zoneIndex)
-          ? zone.itemIds.map((id) => id.split(".")[0] == activeId ? activeId + "." + Date.now() : id)
+        let remainingItems = config.infiniteTokens
+          ? !zoneIndex
+            ? zone.itemIds.map((id) => id.split(".")[0] == activeId ? activeId + "." + Date.now() : id)
+            : zone.itemIds
           : zone.itemIds.filter((id) => id != activeId);
-        if (zone.id === over.id) remainingItems.push(activeId);
+        if (zone.id === over.id) {
+          remainingItems = [...remainingItems, activeId];
+          if (config.infiniteTokens) remainingItems = remainingItems.slice(-1 * (dropZone.maxItems ?? config.maxItems))
+        };
         return { ...zone, itemIds: remainingItems };
       });
     });
@@ -109,7 +116,6 @@ export default function DndPage({ advanceStep, config }) {
         <div className='footer'>
           {zones[0]?.itemIds?.map((id) => {
             const item = tokens[id.split(".")[0]];
-            console.log("id", id);
             return <DropItem key={id} id={"footer-" + item.id} item={item} />;
           })}
           {/* {correct === 2 && <p className='reply correct'>Correct!</p>} */}
