@@ -63,7 +63,7 @@ export default function Home({ config }) {
           timeout={500}
           classNames='transition'
           addEndListener={(done) => {
-            nodeRef.current.addEventListener('transitionend', done, false);
+            nodeRef?.current?.addEventListener('transitionend', done, false);
           }}
         >
           <div ref={nodeRef}>

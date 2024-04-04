@@ -9722,7 +9722,8 @@ function Ag({ config: e }) {
       timeout: 500,
       classNames: "transition",
       addEndListener: (d) => {
-        u.current.addEventListener("transitionend", d, !1);
+        var v;
+        (v = u == null ? void 0 : u.current) == null || v.addEventListener("transitionend", d, !1);
       },
       children: /* @__PURE__ */ R.jsxs("div", { ref: u, children: [
         /* @__PURE__ */ R.jsx(a, { config: t == null ? void 0 : t[n], advanceStep: s }),
