@@ -33,9 +33,10 @@ export default function Home({ config }) {
   const advanceStep = useCallback(async (explicitStep) => {
     await feedback.onFinished();
 
-    const gotoStep = explicitStep ?? stepNumber + 1;
+    const gotoStep = explicitStep ?? (stepNumber + 1);
+    console.log("goto", gotoStep, sequence?.[gotoStep]);
 
-    if (gotoStep >= sequence.length) {
+    if (!sequence?.[gotoStep]) {
       setShowCelebration(true);
       setTimeout(() => {
         window.parent.postMessage({ event: "nextSlide" }, "*");
@@ -63,7 +64,7 @@ export default function Home({ config }) {
           timeout={500}
           classNames='transition'
           addEndListener={(done) => {
-            nodeRef?.current?.addEventListener('transitionend', done, false);
+            nodeRef.current?.addEventListener('transitionend', done, false);
           }}
         >
           <div ref={nodeRef}>

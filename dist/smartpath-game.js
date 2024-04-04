@@ -9703,11 +9703,11 @@ function Ag({ config: e }) {
   const { sequence: t } = e || {}, [n, r] = y.useState(0), [l, o] = y.useState(!1), u = y.useRef(t.map(() => y.createRef())).current[n], s = y.useCallback(async (d) => {
     await Lt.onFinished();
     const v = d ?? n + 1;
-    v >= t.length ? (o(!0), setTimeout(() => {
-      window.parent.postMessage({ event: "nextSlide" }, "*");
-    }, 6e3)) : setTimeout(() => {
+    console.log("goto", v, t == null ? void 0 : t[v]), t != null && t[v] ? setTimeout(() => {
       r(v);
-    }, 1e3);
+    }, 1e3) : (o(!0), setTimeout(() => {
+      window.parent.postMessage({ event: "nextSlide" }, "*");
+    }, 6e3));
   }, [n]);
   y.useEffect(() => {
     var v;
@@ -9723,7 +9723,7 @@ function Ag({ config: e }) {
       classNames: "transition",
       addEndListener: (d) => {
         var v;
-        (v = u == null ? void 0 : u.current) == null || v.addEventListener("transitionend", d, !1);
+        (v = u.current) == null || v.addEventListener("transitionend", d, !1);
       },
       children: /* @__PURE__ */ R.jsxs("div", { ref: u, children: [
         /* @__PURE__ */ R.jsx(a, { config: t == null ? void 0 : t[n], advanceStep: s }),
