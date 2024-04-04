@@ -30,17 +30,19 @@ export default function Home({ config }) {
   const refs = useRef(sequence.map(() => createRef()));
   const nodeRef = refs.current[stepNumber];
 
-  const advanceStep = useCallback(async () => {
+  const advanceStep = useCallback(async (explicitStep) => {
     await feedback.onFinished();
 
-    if (stepNumber + 1 >= sequence.length) {
+    const gotoStep = explicitStep ?? stepNumber + 1;
+
+    if (gotoStep >= sequence.length) {
       setShowCelebration(true);
       setTimeout(() => {
         window.parent.postMessage({ event: "nextSlide" }, "*");
       }, 6000);
     } else {
       setTimeout(() => {
-        setStepNumber(stepNumber + 1);
+        setStepNumber(gotoStep);
       }, 1000);
     }
   }, [stepNumber]);

@@ -9,20 +9,13 @@ import MultiAnswer from './components/MultiAnswer';
 
 export default function MultiChoicePage({ advanceStep, config }) {
   const answers = config.options;
-  const [selected, setSelected] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   function selectAnswer(answer) {
-    setSelected(answer.correct);
-    setIsOpen(true);
     feedback.play(answer.feedback || answer.correct);
-  }
-
-  useEffect(() => {
-    if (!!selected) {
-      advanceStep();
+    if (answer.correct) {
+      advanceStep(answer.goto);
     }
-  }, [advanceStep, selected]);
+  }
 
   return (
     <article style={{ backgroundImage: `url(${config.backgroundImage || ''})` }}>
