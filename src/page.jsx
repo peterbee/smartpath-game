@@ -34,7 +34,6 @@ export default function Home({ config }) {
     await feedback.onFinished();
 
     const gotoStep = explicitStep ?? stepNumber + 1;
-    console.log("goto", gotoStep, sequence?.[gotoStep]);
 
     if (!sequence?.[gotoStep]) {
       setShowCelebration(true);
