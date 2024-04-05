@@ -22,7 +22,10 @@ export default function DndPage({ advanceStep, config }) {
 
   const [zones, setZones] = useState([
     { itemIds: tokens.map(({ id }) => id) },
-    ...config.zones.map(zone => ({ ...zone, itemIds: [] })),
+    ...config.zones.map(zone => ({
+      ...zone, itemIds: [],
+      maxItems: zone.id ? zone.maxItems : 0,
+    })),
   ]);
   const [activeId, setActiveId] = useState(null);
 
@@ -76,8 +79,14 @@ export default function DndPage({ advanceStep, config }) {
   }
 
   useEffect(() => {
-    const remainingTokens = zones[0]?.itemIds?.map(id => tokens[id]).filter(t => t.answer);
-    if (!remainingTokens.length) advanceStep();
+    if (config.infiniteTokens) {
+      if (zones?.slice(1).every(z => (z.itemIds?.length || 0) === (z.maxItems ?? 1)))
+        advanceStep();
+    }
+    else {
+      const remainingTokens = zones[0]?.itemIds?.map(id => tokens[id.split(".")[0]]).filter(t => t.answer);
+      if (!remainingTokens.length) advanceStep();
+    }
   }, [advanceStep, zones]);
 
   return (

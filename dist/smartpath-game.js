@@ -9057,7 +9057,11 @@ function sg({ advanceStep: e, config: t }) {
   var q, w;
   const n = t.tokens.map((A, V) => ({ id: V + "", ...A })), [r, l] = y.useState([
     { itemIds: n.map(({ id: A }) => A) },
-    ...t.zones.map((A) => ({ ...A, itemIds: [] }))
+    ...t.zones.map((A) => ({
+      ...A,
+      itemIds: [],
+      maxItems: A.id ? A.maxItems : 0
+    }))
   ]), [o, i] = y.useState(null), u = Ci(Zf), s = Ci(Ls), a = Ci(Wf, {
     activationConstraint: {
       delay: 250,
@@ -9081,8 +9085,11 @@ function sg({ advanceStep: e, config: t }) {
       })), Lt.play(((E = c.feedback) == null ? void 0 : E.correct) || !0), i(null)) : Lt.play(((S = c.feedback) == null ? void 0 : S.incorrect) || !1);
   }
   return y.useEffect(() => {
-    var V, p;
-    ((p = (V = r[0]) == null ? void 0 : V.itemIds) == null ? void 0 : p.map((c) => n[c]).filter((c) => c.answer)).length || e();
+    var A, V;
+    t.infiniteTokens ? r != null && r.slice(1).every((p) => {
+      var c;
+      return (((c = p.itemIds) == null ? void 0 : c.length) || 0) === (p.maxItems ?? 1);
+    }) && e() : ((V = (A = r[0]) == null ? void 0 : A.itemIds) == null ? void 0 : V.map((c) => n[c.split(".")[0]]).filter((c) => c.answer)).length || e();
   }, [e, r]), /* @__PURE__ */ R.jsx("article", { className: "dndBox", style: { backgroundImage: `url(${t.backgroundImage || ""})` }, children: /* @__PURE__ */ R.jsxs(
     Jv,
     {
