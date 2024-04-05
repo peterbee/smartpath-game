@@ -33,7 +33,7 @@ export default function Home({ config }) {
   const advanceStep = useCallback(async (explicitStep) => {
     await feedback.onFinished();
 
-    const gotoStep = explicitStep ?? (stepNumber + 1);
+    const gotoStep = explicitStep ?? stepNumber + 1;
     console.log("goto", gotoStep, sequence?.[gotoStep]);
 
     if (!sequence?.[gotoStep]) {
