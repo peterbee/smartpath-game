@@ -9081,11 +9081,8 @@ function sg({ advanceStep: e, config: t }) {
       })), Lt.play(((E = c.feedback) == null ? void 0 : E.correct) || !0), i(null)) : Lt.play(((S = c.feedback) == null ? void 0 : S.incorrect) || !1);
   }
   return y.useEffect(() => {
-    var A, V;
-    t.infiniteTokens ? r != null && r.slice(1).every((p) => {
-      var c;
-      return (((c = p.itemIds) == null ? void 0 : c.length) || 0) === (p.maxItems ?? 1);
-    }) && e() : (V = (A = r[0]) == null ? void 0 : A.itemIds) != null && V.length || e();
+    var V, p;
+    ((p = (V = r[0]) == null ? void 0 : V.itemIds) == null ? void 0 : p.map((c) => n[c]).filter((c) => c.answer)).length || e();
   }, [e, r]), /* @__PURE__ */ R.jsx("article", { className: "dndBox", style: { backgroundImage: `url(${t.backgroundImage || ""})` }, children: /* @__PURE__ */ R.jsxs(
     Jv,
     {
@@ -9703,9 +9700,7 @@ function Ag({ config: e }) {
   const { sequence: t } = e || {}, [n, r] = y.useState(0), [l, o] = y.useState(!1), u = y.useRef(t.map(() => y.createRef())).current[n], s = y.useCallback(async (d) => {
     await Lt.onFinished();
     const v = d ?? n + 1;
-    console.log("goto", v, t == null ? void 0 : t[v]), t != null && t[v] ? setTimeout(() => {
-      r(v);
-    }, 1e3) : (o(!0), setTimeout(() => {
+    t != null && t[v] ? r(v) : (o(!0), setTimeout(() => {
       window.parent.postMessage({ event: "nextSlide" }, "*");
     }, 6e3));
   }, [n]);

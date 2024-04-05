@@ -41,9 +41,7 @@ export default function Home({ config }) {
         window.parent.postMessage({ event: "nextSlide" }, "*");
       }, 6000);
     } else {
-      setTimeout(() => {
-        setStepNumber(gotoStep);
-      }, 1000);
+      setStepNumber(gotoStep);
     }
   }, [stepNumber]);
 

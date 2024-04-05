@@ -76,12 +76,8 @@ export default function DndPage({ advanceStep, config }) {
   }
 
   useEffect(() => {
-    if (config.infiniteTokens) {
-      if (zones?.slice(1).every(z => (z.itemIds?.length || 0) === (z.maxItems ?? 1)))
-        advanceStep();
-    } else if (!zones[0]?.itemIds?.length) {
-      advanceStep();
-    }
+    const remainingTokens = zones[0]?.itemIds?.map(id => tokens[id]).filter(t => t.answer);
+    if (!remainingTokens.length) advanceStep();
   }, [advanceStep, zones]);
 
   return (
