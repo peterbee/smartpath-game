@@ -9102,7 +9102,7 @@ function sg({ advanceStep: e, config: t }) {
           !!t.html && /* @__PURE__ */ R.jsx("div", { className: "question", dangerouslySetInnerHTML: { __html: t.html } }),
           /* @__PURE__ */ R.jsx("div", { className: "dropZone", children: r.slice(1).map((A, V) => {
             var p;
-            return A.maxItems === 0 ? /* @__PURE__ */ R.jsx("div", { className: "dropContainer disabled", children: A.html }) : /* @__PURE__ */ R.jsx(
+            return A.maxItems === 0 ? /* @__PURE__ */ R.jsx("div", { className: "dropContainer disabled", dangerouslySetInnerHTML: { __html: A.html } }) : /* @__PURE__ */ R.jsx(
               ug,
               {
                 index: V,

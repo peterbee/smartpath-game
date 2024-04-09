@@ -102,7 +102,7 @@ export default function DndPage({ advanceStep, config }) {
           <div className='dropZone'>
             {zones.slice(1).map((zone, i) => {
               return zone.maxItems === 0
-                ? <div className="dropContainer disabled">{zone.html}</div>
+                ? <div className="dropContainer disabled" dangerouslySetInnerHTML={{ __html: zone.html }} />
                 : (
                   <DropZone
                     index={i}
