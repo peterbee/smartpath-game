@@ -25,7 +25,7 @@ export default () => {
   return (
     <div className="celebration">
       <StarIcon />
-      <h1>Great Job!</h1>
+      <h1>{document?.documentElement?.lang?.toLowerCase().startsWith("es") ? "¡Buen Trabajo!" : "Great Job!"}</h1>
     </div>
   )
 }

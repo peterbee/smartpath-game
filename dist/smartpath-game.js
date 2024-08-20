@@ -9674,12 +9674,15 @@ const mg = () => /* @__PURE__ */ R.jsx(
 		c1.6-6.5-0.5-12.9-5.6-17.2l-65.9-55.7c-10.9-9.2-14.9-23.3-10.5-36.8c4.4-13.5,15.9-22.6,30.1-23.6l86-6.4
 		c6.7-0.5,12.1-4.4,14.6-10.6l32.6-79.8c5.4-13.2,17.5-21.3,31.8-21.3C314.4,35.3,326.5,43.5,331.9,56.7L331.9,56.7z` }) })
   }
-), vg = () => (y.useEffect(() => {
-  fc({ gravity: 0.25, origin: { x: 0, y: 0.75 }, angle: 60 }), fc({ gravity: 0.25, origin: { x: 1, y: 0.75 }, angle: 120 });
-}, []), /* @__PURE__ */ R.jsxs("div", { className: "celebration", children: [
-  /* @__PURE__ */ R.jsx(mg, {}),
-  /* @__PURE__ */ R.jsx("h1", { children: "Great Job!" })
-] })), gg = (e) => {
+), vg = () => {
+  var e, t;
+  return y.useEffect(() => {
+    fc({ gravity: 0.25, origin: { x: 0, y: 0.75 }, angle: 60 }), fc({ gravity: 0.25, origin: { x: 1, y: 0.75 }, angle: 120 });
+  }, []), /* @__PURE__ */ R.jsxs("div", { className: "celebration", children: [
+    /* @__PURE__ */ R.jsx(mg, {}),
+    /* @__PURE__ */ R.jsx("h1", { children: (t = (e = document == null ? void 0 : document.documentElement) == null ? void 0 : e.lang) != null && t.toLowerCase().startsWith("es") ? "¡Buen Trabajo!" : "Great Job!" })
+  ] });
+}, gg = (e) => {
   switch (e) {
     case "matching":
       return sg;
